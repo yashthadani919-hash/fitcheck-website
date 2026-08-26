@@ -94,8 +94,46 @@
   @media (max-width:640px){.wrap{padding:0 20px;}}
 
   /* ---------- reveal ---------- */
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal{
+    opacity:0; transform:translateY(38px) scale(0.97);
+    transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal.in{opacity:1; transform:translateY(0) scale(1);}
+  /* staggered cascade for grid/list children — each item lags slightly
+     behind the previous one instead of all fading in at once */
+  .p-grid .reveal:nth-child(1){transition-delay:0s;}
+  .p-grid .reveal:nth-child(2){transition-delay:.08s;}
+  .p-grid .reveal:nth-child(3){transition-delay:.16s;}
+  .p-grid .reveal:nth-child(4){transition-delay:.24s;}
+  .mod-row .reveal:nth-child(1){transition-delay:0s;}
+  .mod-row .reveal:nth-child(2){transition-delay:.07s;}
+  .mod-row .reveal:nth-child(3){transition-delay:.14s;}
+  .mod-row .reveal:nth-child(4){transition-delay:.21s;}
+  .mod-row .reveal:nth-child(5){transition-delay:.28s;}
+  .trend-list .reveal:nth-child(1){transition-delay:0s;}
+  .trend-list .reveal:nth-child(2){transition-delay:.1s;}
+  .trend-list .reveal:nth-child(3){transition-delay:.2s;}
+  .trend-list .reveal:nth-child(4){transition-delay:.3s;}
+  .chan-grid .reveal:nth-child(1){transition-delay:0s;}
+  .chan-grid .reveal:nth-child(2){transition-delay:.06s;}
+  .chan-grid .reveal:nth-child(3){transition-delay:.12s;}
+  .chan-grid .reveal:nth-child(4){transition-delay:.18s;}
+  .chan-grid .reveal:nth-child(5){transition-delay:.24s;}
+  .chan-grid .reveal:nth-child(6){transition-delay:.3s;}
+  /* hero content animates in on page load, cascading top to bottom */
+  .hero h1.reveal{transition-delay:.05s;}
+  .hero .sub.reveal{transition-delay:.16s;}
+  .hero .tagline.reveal{transition-delay:.27s;}
+  .hero .cta-btn.reveal{transition-delay:.38s;}
+  .hero-stats .reveal:nth-child(1){transition-delay:.48s;}
+  .hero-stats .reveal:nth-child(2){transition-delay:.55s;}
+  .hero-stats .reveal:nth-child(3){transition-delay:.62s;}
+
+  /* thin scroll-progress bar, always visible at the very top */
+  #scrollProgress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:var(--amber); z-index:100; transition:width .1s linear;
+  }
 
   /* ---------- nav ---------- */
   nav{
@@ -135,7 +173,10 @@
     overflow:hidden;
   }
   .hero .wrap{position:relative; z-index:2;}
-  .ring-field{position:absolute; inset:0; z-index:1; pointer-events:none;}
+  .ring-field{position:absolute; inset:0; z-index:1; pointer-events:none; will-change:transform;}
+  .ring-field svg{animation:ring-spin 60s linear infinite;}
+  @keyframes ring-spin{ to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce){ .ring-field svg{animation:none;} }
   .ring-field svg{position:absolute;}
   .hero-tag{font-size:12px; margin-bottom:22px;}
   .hero h1{
@@ -223,7 +264,11 @@
   .mini-ring{width:64px;height:64px; position:relative;}
   .mini-ring svg{transform:rotate(-90deg); width:100%; height:100%;}
   .mini-ring circle{fill:none; stroke-width:6;}
-  .mini-ring .t{stroke:#2E5C43;} .mini-ring .p{stroke:var(--amber); stroke-linecap:round;}
+  .mini-ring .t{stroke:#2E5C43;}
+  .mini-ring .p{stroke:var(--amber); stroke-linecap:round; animation:ring-pulse 2.6s ease-in-out infinite;}
+  .mini-ring:nth-child(2) .p{animation-delay:.5s;}
+  @keyframes ring-pulse{ 0%,100%{opacity:1;} 50%{opacity:.5;} }
+  @media (prefers-reduced-motion: reduce){ .mini-ring .p{animation:none;} }
 
   /* ---------- product modules ---------- */
   .modules{padding:110px 0; background:var(--mist);}
@@ -253,7 +298,13 @@
     width:130px; height:130px; border-radius:50%; background:var(--amber); color:var(--forest);
     display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600; font-size:17px; text-align:center;
     box-shadow:0 0 0 10px rgba(232,163,61,0.12);
+    animation:hub-pulse 3.2s ease-in-out infinite;
   }
+  @keyframes hub-pulse{
+    0%,100%{ box-shadow:0 0 0 10px rgba(232,163,61,0.12); }
+    50%{ box-shadow:0 0 0 20px rgba(232,163,61,0.05); }
+  }
+  @media (prefers-reduced-motion: reduce){ .radial .hub{animation:none;} }
   .radial .node{
     position:absolute; background:var(--pine); border:1px solid #3A6B4E; border-radius:100px;
     padding:10px 18px; font-size:13px; font-weight:600; white-space:nowrap; transform:translate(-50%,-50%);
@@ -342,6 +393,8 @@
 </head>
 <body>
 
+<div id="scrollProgress"></div>
+
 <nav>
   <div class="wrap">
     <div class="brand">
@@ -365,16 +418,16 @@
   <div class="ring-field" id="ringField"></div>
   <div class="wrap">
     <div class="eyebrow hero-tag">Adaptive Nutrition Intelligence</div>
-    <h1>One photo. Real macros.<br>A plan that <em>adapts daily.</em></h1>
-    <p class="sub">Not another static calorie counter. Fit-Check reads real, home-cooked meals, adjusts your targets to how your day actually went, and coaches you — every day, automatically.</p>
-    <p class="tagline">An adaptive nutrition engine that combines AI meal recognition, activity-aware targets, and daily coaching — with built-in support for households who cook together but train toward different goals.</p>
+    <h1 class="reveal">One photo. Real macros.<br>A plan that <em>adapts daily.</em></h1>
+    <p class="sub reveal">Not another static calorie counter. Fit-Check reads real, home-cooked meals, adjusts your targets to how your day actually went, and coaches you — every day, automatically.</p>
+    <p class="tagline reveal">An adaptive nutrition engine that combines AI meal recognition, activity-aware targets, and daily coaching — with built-in support for households who cook together but train toward different goals.</p>
 
-    <a class="cta-btn" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener" style="margin-top:30px; display:inline-block;">Try Fit-Check →</a>
+    <a class="cta-btn reveal" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener" style="margin-top:30px; display:inline-block;">Try Fit-Check →</a>
 
     <div class="hero-stats">
-      <div class="hero-stat"><div class="n">AI</div><div class="l">Reads real home-cooked meals from a photo or your voice</div></div>
-      <div class="hero-stat"><div class="n">Daily</div><div class="l">Targets that adapt to your logged activity</div></div>
-      <div class="hero-stat"><div class="n">2+</div><div class="l">Household members can share one log, split automatically</div></div>
+      <div class="hero-stat reveal"><div class="n">AI</div><div class="l">Reads real home-cooked meals from a photo or your voice</div></div>
+      <div class="hero-stat reveal"><div class="n">Daily</div><div class="l">Targets that adapt to your logged activity</div></div>
+      <div class="hero-stat reveal"><div class="n">2+</div><div class="l">Household members can share one log, split automatically</div></div>
     </div>
   </div>
 </section>
@@ -649,6 +702,30 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.12});
   revealEls.forEach(el=>io.observe(el));
+
+  // Scroll-progress bar — a thin line across the top that fills as you read down the page
+  const progressBar = document.getElementById('scrollProgress');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function updateScrollProgress(){
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const pct = max > 0 ? (scrolled / max) * 100 : 0;
+    if (progressBar) progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
+  // Subtle parallax on the hero's decorative rings — reinforces depth on scroll
+  // without doing anything jarring. Skipped entirely if the visitor has
+  // requested reduced motion.
+  const heroRingField = document.getElementById('ringField');
+  if (heroRingField && !prefersReducedMotion) {
+    window.addEventListener('scroll', () => {
+      const offset = Math.min(window.scrollY * 0.15, 60);
+      heroRingField.style.transform = `translateY(${offset}px)`;
+    }, { passive: true });
+  }
 
   // Hero background ring field (decorative, large concentric rings)
   function buildRingField(containerId, cx, cy){
