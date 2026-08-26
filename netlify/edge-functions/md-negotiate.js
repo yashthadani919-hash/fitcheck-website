@@ -7,9 +7,9 @@
 const MARKDOWN = {
   '/': `# Fit-Check
 
-One meal. Two goals. Zero manual math.
+One photo. Real macros. A plan that adapts daily.
 
-Fit-Check reads a shared meal (a photo or a text description) and splits it into personalized macros and portions for each person in a household — built for couples and families who cook and eat together but are working toward different, sometimes opposite, body-composition goals (one cutting, one bulking, one maintaining).
+Fit-Check reads real, home-cooked meals from a photo or description, adjusts daily calorie/macro targets based on logged activity, and delivers daily plain-language coaching. It also supports households: one shared meal can be split automatically into personalized macros per person, including across different, sometimes opposite, body-composition goals (one cutting, one bulking, one maintaining).
 
 ## Key pages
 - About: https://fitcheckcoach.com/about.html
