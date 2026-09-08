@@ -160,6 +160,14 @@
   /* ---------- magnetic buttons ---------- */
   .cta-btn, nav .cta{ transition:transform .25s cubic-bezier(.34,1.56,.64,1); }
   .ring-field{ transition:transform .3s ease-out; }
+
+  /* ---------- custom icons: hand-drawn reveal ---------- */
+  /* dasharray/dashoffset are computed and set per-path in JS (depends on each
+     path's real length) — this just governs the transition once that's set. */
+  .icon-draw{ transition:stroke-dashoffset 1s cubic-bezier(.65,0,.35,1); }
+  @media (prefers-reduced-motion: reduce){
+    .icon-draw{ transition:none !important; stroke-dashoffset:0 !important; }
+  }
   /* staggered cascade for grid/list children — each item lags slightly
      behind the previous one instead of all fading in at once */
   .p-grid .reveal:nth-child(1){transition-delay:0s;}
@@ -306,7 +314,8 @@
     padding:26px 0; border-bottom:1px solid #2E5C43;
   }
   @media (max-width:700px){.trend-row{grid-template-columns:40px 1fr; row-gap:8px;} .trend-row .tr-desc{grid-column:2/3;}}
-  .tr-idx{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:14px;}
+  .tr-idx{width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.06); display:flex; align-items:center; justify-content:center; color:var(--amber); flex:none;}
+  .tr-idx svg{width:20px; height:20px;}
   .tr-title{font-family:'Fraunces',serif; font-size:19px; font-weight:600;}
   .tr-desc{font-size:14px; color:#B9D2C2; line-height:1.6;}
 
@@ -367,7 +376,8 @@
   }
   .mod-card.hi{background:var(--forest); color:#fff; transform:translateY(-10px);}
   .mod-card:hover{box-shadow:0 16px 40px -12px rgba(27,58,43,0.18);}
-  .mod-icon{width:38px; height:38px; border-radius:50%; background:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--forest); margin-bottom:20px; font-weight:500;}
+  .mod-icon{width:44px; height:44px; border-radius:50%; background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--forest); margin-bottom:20px;}
+  .mod-icon svg{width:22px; height:22px;}
   .mod-card.hi .mod-icon{background:var(--amber);}
   .mod-card h3{font-size:15.5px; margin-bottom:8px; font-weight:600;}
   .mod-card p{margin:0; font-size:12.5px; line-height:1.55; color:var(--muted);}
@@ -445,7 +455,8 @@
   @media (max-width:760px){.chan-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:480px){.chan-grid{grid-template-columns:1fr;}}
   .chan{background:var(--pine); border:1px solid #3A6B4E; border-radius:12px; padding:20px 22px; display:flex; align-items:center; gap:14px; font-family:'Fraunces',serif; font-weight:600; font-size:15px;}
-  .chan .cn{width:32px;height:32px;border-radius:50%; background:var(--amber); color:var(--forest); font-family:'IBM Plex Mono',monospace; font-size:12px; display:flex; align-items:center; justify-content:center; flex:none;}
+  .chan .cn{width:36px;height:36px;border-radius:50%; background:var(--amber); color:var(--forest); display:flex; align-items:center; justify-content:center; flex:none;}
+  .chan .cn svg{width:18px; height:18px;}
 
   /* ---------- roadmap timeline ---------- */
   .roadmap{padding:110px 0;}
@@ -550,22 +561,22 @@
     <h2 class="sec-title light reveal">Four shifts just converged to make this possible.</h2>
     <div class="trend-list">
       <div class="trend-row reveal">
-        <div class="tr-idx">01</div>
+        <div class="tr-idx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 8V6a2 2 0 0 1 2-2h2 M16 4h2a2 2 0 0 1 2 2v2 M20 16v2a2 2 0 0 1-2 2h-2 M8 20H6a2 2 0 0 1-2-2v-2 M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg></div>
         <div class="tr-title">AI understands food</div>
         <div class="tr-desc">Meals can now be understood directly from a photo or a spoken sentence — no manual database search required.</div>
       </div>
       <div class="trend-row reveal">
-        <div class="tr-idx">02</div>
+        <div class="tr-idx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M7 9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9z M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7 M9 17v1.5A1.5 1.5 0 0 0 10.5 20h3a1.5 1.5 0 0 0 1.5-1.5V17 M12 10.5V12l1.5 1"/></svg></div>
         <div class="tr-title">Wearables went mainstream</div>
         <div class="tr-desc">Apple Watch, Fitbit, Garmin and Whoop now generate continuous health data for a huge and growing share of consumers.</div>
       </div>
       <div class="trend-row reveal">
-        <div class="tr-idx">03</div>
+        <div class="tr-idx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 16l5-5 3 3 7-7 M15 7h5v5"/></svg></div>
         <div class="tr-title">Consumers think proactively</div>
         <div class="tr-desc">Health is increasingly viewed as something to optimize day-to-day, not something to treat only after it breaks down.</div>
       </div>
       <div class="trend-row reveal">
-        <div class="tr-idx">04</div>
+        <div class="tr-idx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M12 3l7 3.5v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9v-5z M9.5 12.5l1.8 1.8 3.2-3.6"/></svg></div>
         <div class="tr-title">Governments fund prevention</div>
         <div class="tr-desc">Public healthcare systems are investing in preventive care to reduce the long-term cost of chronic disease.</div>
       </div>
@@ -619,11 +630,11 @@
     <div class="kicker reveal"><span class="eyebrow">Product</span></div>
     <h2 class="sec-title reveal">Five connected modules.</h2>
     <div class="mod-row">
-      <div class="mod-card reveal"><div class="mod-icon">01</div><h3>Intelligent Meal Logging</h3><p>Photo, voice, or barcode input. AI estimates calories, protein, carbs, fats and serving size — tuned for home-cooked, mixed-ingredient meals.</p></div>
-      <div class="mod-card reveal"><div class="mod-icon">02</div><h3>Adaptive Nutrition Engine</h3><p>Daily targets shift with activity, recovery, sleep, weight trend and personal goals.</p></div>
-      <div class="mod-card reveal"><div class="mod-icon">03</div><h3>Wearable Intelligence</h3><p>Syncs Apple Health, Fitbit, Garmin and Whoop — one connection per household member.</p></div>
-      <div class="mod-card reveal"><div class="mod-icon">04</div><h3>AI Coaching</h3><p>Plain-language daily guidance, delivered in-app or via WhatsApp — whichever the user prefers.</p></div>
-      <div class="mod-card hi reveal"><div class="mod-icon">05</div><h3>Shared Nutrition</h3><p>One shared meal, split automatically into individually personalized portions — for couples, families, teams.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z M12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></div><h3>Intelligent Meal Logging</h3><p>Photo, voice, or barcode input. AI estimates calories, protein, carbs, fats and serving size — tuned for home-cooked, mixed-ingredient meals.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><h3>Adaptive Nutrition Engine</h3><p>Daily targets shift with activity, recovery, sleep, weight trend and personal goals.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M7 9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9z M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7 M9 17v1.5A1.5 1.5 0 0 0 10.5 20h3a1.5 1.5 0 0 0 1.5-1.5V17 M12 10.5V12l1.5 1"/></svg></div><h3>Wearable Intelligence</h3><p>Syncs Apple Health, Fitbit, Garmin and Whoop — one connection per household member.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4v-4a2 2 0 0 1-2-2V6z M14 7l.6 1.4L16 9l-1.4.6L14 11l-.6-1.4L11 9l1.4-.6z"/></svg></div><h3>AI Coaching</h3><p>Plain-language daily guidance, delivered in-app or via WhatsApp — whichever the user prefers.</p></div>
+      <div class="mod-card hi reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M9 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z M15 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg></div><h3>Shared Nutrition</h3><p>One shared meal, split automatically into individually personalized portions — for couples, families, teams.</p></div>
     </div>
   </div>
 </section>
@@ -742,12 +753,12 @@
     <h2 class="sec-title light reveal">Grow through trust, not ad spend.</h2>
     <p class="sec-sub light reveal">We reach users through the professionals and communities they already trust — then let partnerships and referrals compound.</p>
     <div class="chan-grid">
-      <div class="chan reveal"><span class="cn">01</span>Nutritionists</div>
-      <div class="chan reveal"><span class="cn">02</span>Fitness Coaches</div>
-      <div class="chan reveal"><span class="cn">03</span>Gyms</div>
-      <div class="chan reveal"><span class="cn">04</span>Universities</div>
-      <div class="chan reveal"><span class="cn">05</span>Startup Communities</div>
-      <div class="chan reveal"><span class="cn">06</span>Health Influencers</div>
+      <div class="chan reveal"><span class="cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M6 20c-2-6 1-14 12-16-1 9-4 14-12 16z M8.5 17.5c2-3.5 4.5-7 8-10"/></svg></span>Nutritionists</div>
+      <div class="chan reveal"><span class="cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 10v4M7 8v8M17 8v8M20 10v4M7 12h10"/></svg></span>Fitness Coaches</div>
+      <div class="chan reveal"><span class="cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M7 8v8 M17 8v8 M4 10v4 M20 10v4 M9 12h6"/></svg></span>Gyms</div>
+      <div class="chan reveal"><span class="cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M12 4L2 9l10 5 10-5-10-5z M6 11.5V16c0 1.66 2.69 3 6 3s6-1.34 6-3v-4.5 M22 9v6"/></svg></span>Universities</div>
+      <div class="chan reveal"><span class="cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M17 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M12 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M9 7h6 M8.4 8.4l2.8 8.1 M15.6 8.4l-2.8 8.1"/></svg></span>Startup Communities</div>
+      <div class="chan reveal"><span class="cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M3 10.5v3a1 1 0 0 0 1 1h2.5l7 4.2V5.3l-7 4.2H4a1 1 0 0 0-1 1z M14.5 9a3 3 0 0 1 0 6 M17.5 6.5a7 7 0 0 1 0 11"/></svg></span>Health Influencers</div>
     </div>
   </div>
 </section>
@@ -909,6 +920,30 @@
         section.style.setProperty('--gy', `${e.clientY - rect.top}px`);
       });
     });
+  }
+
+  // Custom icons draw themselves in — stroke animates from fully hidden to
+  // fully drawn — the moment their card/row enters view. Same trigger zone as
+  // the rest of the reveal system, but kept as an independent observer rather
+  // than touching that one, since it's watching different elements.
+  document.querySelectorAll('path.icon-draw').forEach(path => {
+    const len = Math.ceil(path.getTotalLength());
+    path.style.strokeDasharray = len;
+    path.style.strokeDashoffset = len;
+  });
+  if (!prefersReducedMotion) {
+    const iconContainers = document.querySelectorAll('.mod-icon, .tr-idx, .chan .cn');
+    const iconIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('path.icon-draw').forEach(p => { p.style.strokeDashoffset = 0; });
+          iconIo.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px 120px 0px' });
+    iconContainers.forEach(el => iconIo.observe(el));
+  } else {
+    document.querySelectorAll('path.icon-draw').forEach(p => { p.style.strokeDashoffset = 0; });
   }
 
   // Hero background ring field (decorative, large concentric rings)
