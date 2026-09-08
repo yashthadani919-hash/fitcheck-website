@@ -103,6 +103,15 @@
   }
   .reveal.in{opacity:1; transform:translateY(0);}
 
+  /* Headlines get a curtain wipe instead of fade+slide — a more deliberate,
+     crafted reveal for the one line per section that should feel like a
+     statement, not just another block cascading in. */
+  .sec-title.reveal, .hero h1.reveal{
+    opacity:1; transform:none; clip-path:inset(0 0 100% 0);
+    transition:clip-path .8s cubic-bezier(.65,0,.35,1);
+  }
+  .sec-title.reveal.in, .hero h1.reveal.in{ clip-path:inset(0 0 0% 0); }
+
   /* ---------- dark-section depth ---------- */
   /* The forest-green sections were flat single-color rectangles stacked on top
      of each other — no gradient, no texture, nothing to suggest depth. A soft
@@ -116,6 +125,41 @@
     mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+  /* A soft glow that follows the cursor within each dark section — driven by
+     --gx/--gy custom properties set on mousemove (see script). Static and
+     invisible until the mouse is actually over the section. */
+  .hero::before, .whynow::before, .innovation::before, .gtm::before, .close::before{
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:1; opacity:0;
+    background:radial-gradient(480px circle at var(--gx,50%) var(--gy,20%), rgba(232,163,61,.12), transparent 60%);
+    transition:opacity .5s ease;
+  }
+  .hero:hover::before, .whynow:hover::before, .innovation:hover::before, .gtm:hover::before, .close:hover::before{ opacity:1; }
+  @media (prefers-reduced-motion: reduce){
+    .hero::before, .whynow::before, .innovation::before, .gtm::before, .close::before{ display:none; }
+  }
+
+  /* ---------- interactive tilt + cursor sheen (cards, phone mockups) ---------- */
+  /* A cursor-tracked 3D tilt plus a soft light sheen that follows the pointer —
+     driven by JS (mousemove sets rotation + --mx/--my), CSS just renders it. */
+  .p-card, .mod-card, .phone-frame{
+    position:relative; overflow:hidden; transform-style:preserve-3d;
+    will-change:transform; transition:transform .15s ease-out, box-shadow .3s ease;
+  }
+  .p-card::before, .mod-card::before, .phone-frame::before{
+    content:''; position:absolute; inset:0; pointer-events:none; opacity:0; z-index:5;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.45), transparent 65%);
+    transition:opacity .25s ease;
+  }
+  .mod-card.hi::before{ background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.18), transparent 65%); }
+  .p-card:hover::before, .mod-card:hover::before, .phone-frame:hover::before{ opacity:1; }
+  @media (prefers-reduced-motion: reduce){
+    .p-card, .mod-card, .phone-frame{ transition:box-shadow .3s ease; }
+    .p-card::before, .mod-card::before, .phone-frame::before{ display:none; }
+  }
+
+  /* ---------- magnetic buttons ---------- */
+  .cta-btn, nav .cta{ transition:transform .25s cubic-bezier(.34,1.56,.64,1); }
+  .ring-field{ transition:transform .3s ease-out; }
   /* staggered cascade for grid/list children — each item lags slightly
      behind the previous one instead of all fading in at once */
   .p-grid .reveal:nth-child(1){transition-delay:0s;}
@@ -244,9 +288,9 @@
     background:#fff; border-radius:4px 14px 14px 4px; padding:32px 30px 30px;
     border-left:3px solid var(--amber);
     box-shadow:0 1px 2px rgba(27,58,43,.04);
-    transition:transform .3s ease, box-shadow .3s ease;
+    transition:box-shadow .3s ease;
   }
-  .p-card:hover{transform:translateY(-3px); box-shadow:0 16px 40px -12px rgba(27,58,43,0.18);}
+  .p-card:hover{box-shadow:0 16px 40px -12px rgba(27,58,43,0.18);}
   .p-num{
     font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--amber); font-weight:600;
     letter-spacing:.1em; display:block; margin-bottom:16px;
@@ -319,11 +363,10 @@
   @media (max-width:560px){.mod-row{grid-template-columns:1fr;}}
   .mod-card{
     background:#fff; border-radius:14px; padding:26px 20px; border:1px solid var(--line);
-    transition:transform .25s ease;
+    transition:box-shadow .25s ease;
   }
   .mod-card.hi{background:var(--forest); color:#fff; transform:translateY(-10px);}
-  .mod-card:hover{transform:translateY(-6px);}
-  .mod-card.hi:hover{transform:translateY(-14px);}
+  .mod-card:hover{box-shadow:0 16px 40px -12px rgba(27,58,43,0.18);}
   .mod-icon{width:38px; height:38px; border-radius:50%; background:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--forest); margin-bottom:20px; font-weight:500;}
   .mod-card.hi .mod-icon{background:var(--amber);}
   .mod-card h3{font-size:15.5px; margin-bottom:8px; font-weight:600;}
@@ -790,15 +833,82 @@
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
 
-  // Subtle parallax on the hero's decorative rings — reinforces depth on scroll
-  // without doing anything jarring. Skipped entirely if the visitor has
-  // requested reduced motion.
-  const heroRingField = document.getElementById('ringField');
-  if (heroRingField && !prefersReducedMotion) {
-    window.addEventListener('scroll', () => {
-      const offset = Math.min(window.scrollY * 0.15, 60);
-      heroRingField.style.transform = `translateY(${offset}px)`;
-    }, { passive: true });
+  // Decorative rings: scroll pulls them down slightly, cursor position adds a
+  // small directional shift — tracked as separate offsets and combined into one
+  // transform so scroll and mouse events don't fight over the same property.
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('.ring-field').forEach(field => {
+      const section = field.closest('section') || field.parentElement;
+      let scrollOffset = 0, mx = 0, my = 0;
+      const apply = () => { field.style.transform = `translate(${mx}px, ${scrollOffset + my}px)`; };
+      if (field.id === 'ringField') {
+        window.addEventListener('scroll', () => {
+          scrollOffset = Math.min(window.scrollY * 0.15, 60);
+          apply();
+        }, { passive: true });
+      }
+      section.addEventListener('mousemove', (e) => {
+        const rect = section.getBoundingClientRect();
+        mx = ((e.clientX - rect.left) / rect.width - 0.5) * -16;
+        my = ((e.clientY - rect.top) / rect.height - 0.5) * -16;
+        apply();
+      });
+      section.addEventListener('mouseleave', () => { mx = 0; my = 0; apply(); });
+    });
+  }
+
+  // Cards + phone mockups: cursor-tracked 3D tilt plus a light sheen that
+  // follows the pointer (--mx/--my consumed by the ::before in CSS). The "hi"
+  // module card has a permanent -10px lift baked in as its resting state, so
+  // the tilt gets layered on top of that rather than replacing it.
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('.p-card, .mod-card, .phone-frame').forEach(card => {
+      const baseY = card.classList.contains('hi') ? -10 : 0;
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left, y = e.clientY - rect.top;
+        const cx = x / rect.width - 0.5, cy = y / rect.height - 0.5;
+        card.style.transform = `translateY(${baseY}px) perspective(800px) rotateX(${(-cy * 7).toFixed(2)}deg) rotateY(${(cx * 7).toFixed(2)}deg)`;
+        card.style.setProperty('--mx', `${x}px`);
+        card.style.setProperty('--my', `${y}px`);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `translateY(${baseY}px)`;
+      });
+    });
+  }
+
+  // Magnetic buttons: nudges toward the cursor within its own bounds, settles
+  // back on release. The nav CTA has its own bounce animation running, which
+  // would otherwise fight the inline transform — paused for the moment the
+  // pointer is actually on it.
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('.cta-btn, nav .cta').forEach(btn => {
+      const isBouncing = btn.matches('nav .cta');
+      btn.addEventListener('mouseenter', () => { if (isBouncing) btn.style.animationPlayState = 'paused'; });
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${(x * 0.25).toFixed(1)}px, ${(y * 0.35).toFixed(1)}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0,0)';
+        if (isBouncing) btn.style.animationPlayState = 'running';
+      });
+    });
+  }
+
+  // Ambient glow that follows the cursor within each dark section (CSS reads
+  // --gx/--gy; opacity is 0 until hovered, see CSS).
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('.hero, .whynow, .innovation, .gtm, .close').forEach(section => {
+      section.addEventListener('mousemove', (e) => {
+        const rect = section.getBoundingClientRect();
+        section.style.setProperty('--gx', `${e.clientX - rect.left}px`);
+        section.style.setProperty('--gy', `${e.clientY - rect.top}px`);
+      });
+    });
   }
 
   // Hero background ring field (decorative, large concentric rings)
