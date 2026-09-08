@@ -94,11 +94,28 @@
   @media (max-width:640px){.wrap{padding:0 20px;}}
 
   /* ---------- reveal ---------- */
+  /* Kept short and small-travel on purpose — the previous .8s/38px version left
+     multi-second blank gaps on every section as you scrolled, which reads as
+     broken rather than smooth. This should feel present almost immediately. */
   .reveal{
-    opacity:0; transform:translateY(38px) scale(0.97);
-    transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+    opacity:0; transform:translateY(14px);
+    transition:opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
   }
-  .reveal.in{opacity:1; transform:translateY(0) scale(1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- dark-section depth ---------- */
+  /* The forest-green sections were flat single-color rectangles stacked on top
+     of each other — no gradient, no texture, nothing to suggest depth. A soft
+     diagonal gradient plus a very faint grain overlay reads as material rather
+     than a flat digital color block, without changing the palette at all. */
+  .hero, .whynow, .innovation, .gtm, .close{
+    background:linear-gradient(160deg, #21492f 0%, var(--forest) 45%, #132a1e 100%);
+  }
+  .hero::after, .whynow::after, .innovation::after, .gtm::after, .close::after{
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:1; opacity:.05;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
   /* staggered cascade for grid/list children — each item lags slightly
      behind the previous one instead of all fading in at once */
   .p-grid .reveal:nth-child(1){transition-delay:0s;}
@@ -120,14 +137,15 @@
   .chan-grid .reveal:nth-child(4){transition-delay:.18s;}
   .chan-grid .reveal:nth-child(5){transition-delay:.24s;}
   .chan-grid .reveal:nth-child(6){transition-delay:.3s;}
-  /* hero content animates in on page load, cascading top to bottom */
-  .hero h1.reveal{transition-delay:.05s;}
-  .hero .sub.reveal{transition-delay:.16s;}
-  .hero .tagline.reveal{transition-delay:.27s;}
-  .hero .cta-btn.reveal{transition-delay:.38s;}
-  .hero-stats .reveal:nth-child(1){transition-delay:.48s;}
-  .hero-stats .reveal:nth-child(2){transition-delay:.55s;}
-  .hero-stats .reveal:nth-child(3){transition-delay:.62s;}
+  /* hero content animates in on page load, cascading top to bottom — fast enough
+     that the whole cascade settles in well under a second, not 1.5s+ */
+  .hero h1.reveal{transition-delay:0s;}
+  .hero .sub.reveal{transition-delay:.06s;}
+  .hero .tagline.reveal{transition-delay:.12s;}
+  .hero .cta-btn.reveal{transition-delay:.18s;}
+  .hero-stats .reveal:nth-child(1){transition-delay:.24s;}
+  .hero-stats .reveal:nth-child(2){transition-delay:.29s;}
+  .hero-stats .reveal:nth-child(3){transition-delay:.34s;}
 
   /* thin scroll-progress bar, always visible at the very top */
   #scrollProgress{
@@ -166,7 +184,6 @@
 
   /* ---------- hero ---------- */
   .hero{
-    background:var(--forest);
     color:#fff;
     padding:96px 0 120px;
     position:relative;
@@ -219,22 +236,26 @@
   .problem{padding:110px 0;}
   .p-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:56px;}
   @media (max-width:760px){.p-grid{grid-template-columns:1fr;}}
+  /* Deliberately not the same "circle badge + card" component as the product
+     modules further down — a left accent rule and a plain numeral read as more
+     editorial, and having two different card languages breaks the sense that
+     the whole page is one component copy-pasted everywhere. */
   .p-card{
-    background:#fff; border:1px solid var(--line); border-radius:14px; padding:30px 28px;
-    display:flex; gap:20px; align-items:flex-start;
+    background:#fff; border-radius:4px 14px 14px 4px; padding:32px 30px 30px;
+    border-left:3px solid var(--amber);
+    box-shadow:0 1px 2px rgba(27,58,43,.04);
     transition:transform .3s ease, box-shadow .3s ease;
   }
   .p-card:hover{transform:translateY(-3px); box-shadow:0 16px 40px -12px rgba(27,58,43,0.18);}
   .p-num{
-    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--forest); font-weight:500;
-    width:38px; height:38px; border-radius:50%; background:var(--mist); border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center; flex:none;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--amber); font-weight:600;
+    letter-spacing:.1em; display:block; margin-bottom:16px;
   }
   .p-card h3{font-size:17px; color:var(--ink); margin-bottom:8px; font-weight:600;}
   .p-card p{margin:0; font-size:13.5px; color:var(--muted); line-height:1.6;}
 
   /* ---------- why now (dark) ---------- */
-  .whynow{background:var(--forest); color:#fff; padding:110px 0;}
+  .whynow{color:#fff; padding:110px 0;}
   .trend-list{margin-top:52px; border-top:1px solid #2E5C43;}
   .trend-row{
     display:grid; grid-template-columns:56px 1fr 1.2fr; gap:24px; align-items:center;
@@ -310,7 +331,7 @@
   .mod-card.hi p{color:#CFE0D5;}
 
   /* ---------- innovation (radial) ---------- */
-  .innovation{padding:110px 0; background:var(--forest); color:#fff; overflow:hidden;}
+  .innovation{padding:110px 0; color:#fff; overflow:hidden;}
   .radial-wrap{margin-top:56px; display:flex; gap:64px; align-items:center; flex-wrap:wrap;}
   .radial{position:relative; width:420px; height:420px; flex:none; margin:0 auto;}
   @media (max-width:480px){.radial{width:300px; height:300px;}}
@@ -376,7 +397,7 @@
   .cmp-note{margin-top:16px; font-size:12px; color:var(--muted); font-style:italic;}
 
   /* ---------- GTM channels ---------- */
-  .gtm{padding:110px 0; background:var(--forest); color:#fff;}
+  .gtm{padding:110px 0; color:#fff;}
   .chan-grid{margin-top:56px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
   @media (max-width:760px){.chan-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:480px){.chan-grid{grid-template-columns:1fr;}}
@@ -396,7 +417,7 @@
   .tl-desc{font-size:13px; color:var(--muted); margin-top:8px; line-height:1.55;}
 
   /* ---------- close / funding ---------- */
-  .close{background:var(--forest); color:#fff; padding:120px 0 100px; position:relative; overflow:hidden;}
+  .close{color:#fff; padding:120px 0 100px; position:relative; overflow:hidden;}
   .close .wrap{position:relative; z-index:2;}
   .close-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:56px;}
   @media (max-width:760px){.close-grid{grid-template-columns:1fr;}}
@@ -742,11 +763,18 @@
 </footer>
 
 <script>
-  // Reveal on scroll
-  const revealEls = document.querySelectorAll('.reveal');
+  // The hero is visible the moment the page loads — there's nothing to "scroll
+  // into", so it reveals immediately rather than waiting on any intersection
+  // check (that wait was exactly what made the hero sit blank for seconds).
+  document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('in'));
+
+  // Everything below the fold still reveals on scroll, but the trigger zone
+  // starts 120px before an element reaches the viewport so it feels proactive
+  // instead of catching up after you've already scrolled to it.
+  const revealEls = document.querySelectorAll('.reveal:not(.hero .reveal)');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.12});
+  }, {threshold:0.1, rootMargin:'0px 0px 120px 0px'});
   revealEls.forEach(el=>io.observe(el));
 
   // Scroll-progress bar — a thin line across the top that fills as you read down the page
