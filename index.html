@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fit-Check — Adaptive Nutrition Intelligence & AI Coaching</title>
-<meta name="description" content="Fit-Check reads real, home-cooked meals from a photo, adapts your daily targets to your actual activity, and coaches you every day — with built-in support for households who cook together but train toward different goals.">
+<title>Fit-Check — Your Whole Health, One App</title>
+<meta name="description" content="Fit-Check is the one-stop-shop personal health app: meal logging, workout tracking, wearable sync, household sharing, and daily coaching that looks at your whole day — all in one adaptive engine.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#1B3A2B">
 <link rel="canonical" href="https://fitcheckcoach.com/">
@@ -14,12 +14,16 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fit-Check">
 <meta property="og:url" content="https://fitcheckcoach.com/">
-<meta property="og:title" content="Fit-Check — Adaptive Nutrition Intelligence & AI Coaching">
-<meta property="og:description" content="AI meal recognition, activity-aware daily targets, and daily coaching — one adaptive engine, with automatic per-person splitting for households.">
+<meta property="og:title" content="Fit-Check — Your Whole Health, One App">
+<meta property="og:description" content="Food, workouts, wearables, household sharing, and daily coaching — one adaptive engine instead of five separate trackers.">
 <meta property="og:image" content="https://fitcheckcoach.com/icon.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fit-Check — Adaptive Nutrition Intelligence & AI Coaching">
-<meta name="twitter:description" content="AI meal recognition, activity-aware daily targets, and daily coaching — one adaptive engine, with automatic per-person splitting for households.">
+<meta property="og:video" content="https://fitcheckcoach.com/video/brag-final.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta property="og:video:width" content="1920">
+<meta property="og:video:height" content="1080">
+<meta name="twitter:card" content="player">
+<meta name="twitter:title" content="Fit-Check — Your Whole Health, One App">
+<meta name="twitter:description" content="Food, workouts, wearables, household sharing, and daily coaching — one adaptive engine instead of five separate trackers.">
 <meta name="twitter:image" content="https://fitcheckcoach.com/icon.png">
 <script type="application/ld+json">
 {
@@ -27,7 +31,7 @@
   "@type": "WebSite",
   "name": "Fit-Check",
   "url": "https://fitcheckcoach.com/",
-  "description": "Adaptive nutrition intelligence — AI meal recognition, activity-aware daily targets, and daily coaching, with automatic per-person splitting for households."
+  "description": "The one-stop-shop personal health app — meal logging, workout tracking, wearable sync, household sharing, and daily whole-day coaching, in one adaptive engine."
 }
 </script>
 <script type="application/ld+json">
@@ -38,7 +42,7 @@
   "url": "https://fitcheckcoach.com/",
   "logo": "https://fitcheckcoach.com/icon.png",
   "email": "hello@fitcheckcoach.com",
-  "description": "Adaptive nutrition intelligence app — AI meal recognition, activity-aware daily targets, and daily coaching, with automatic per-person splitting for households.",
+  "description": "The one-stop-shop personal health app — meal logging, workout tracking, wearable sync, household sharing, and daily whole-day coaching, in one adaptive engine.",
   "contactPoint": {
     "@type": "ContactPoint",
     "email": "hello@fitcheckcoach.com",
@@ -284,6 +288,11 @@
   .sec-sub{margin-top:16px; max-width:600px; font-size:15.5px; line-height:1.65; color:var(--muted);}
   .sec-sub.light{color:#CFE0D5;}
 
+  /* ---------- showreel (video) ---------- */
+  .showreel{padding:110px 0; background:var(--paper);}
+  .showreel-frame{margin-top:48px; max-width:900px; margin-left:auto; margin-right:auto; border-radius:20px; overflow:hidden; box-shadow:0 30px 60px -20px rgba(27,58,43,0.35); background:#000;}
+  .showreel-frame video{width:100%; display:block; aspect-ratio:16/9;}
+
   /* ---------- problem ---------- */
   .problem{padding:110px 0;}
   .p-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:56px;}
@@ -500,6 +509,7 @@
       Fit-Check
     </div>
     <div class="links">
+      <a href="#showreel">Watch</a>
       <a href="#problem">Problem</a>
       <a href="#solution">Solution</a>
       <a href="#product">Product</a>
@@ -513,17 +523,30 @@
 <section class="hero">
   <div class="ring-field" id="ringField"></div>
   <div class="wrap">
-    <div class="eyebrow hero-tag">Adaptive Nutrition Intelligence</div>
-    <h1 class="reveal">One photo. Real macros.<br>A plan that <em>adapts daily.</em></h1>
-    <p class="sub reveal">Not another static calorie counter. Fit-Check reads real, home-cooked meals, adjusts your targets to how your day actually went, and coaches you — every day, automatically.</p>
-    <p class="tagline reveal">An adaptive nutrition engine that combines AI meal recognition, activity-aware targets, and daily coaching — with built-in support for households who cook together but train toward different goals.</p>
+    <div class="eyebrow hero-tag">The One-Stop-Shop Health App</div>
+    <h1 class="reveal">Your whole health.<br><em>One app.</em></h1>
+    <p class="sub reveal">Not five single-purpose trackers duct-taped together. Fit-Check logs your meals, tracks your workouts, pulls in your wearable data, keeps your household in sync, and coaches your whole day — in one adaptive engine.</p>
+    <p class="tagline reveal" style="font-style:italic;">"Your body is your fit."</p>
 
     <a class="cta-btn reveal" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener" style="margin-top:30px; display:inline-block;">Try Fit-Check →</a>
 
     <div class="hero-stats">
+      <div class="hero-stat reveal"><div class="n">5</div><div class="l">Pillars — food, workouts, wearables, household, coaching</div></div>
       <div class="hero-stat reveal"><div class="n">AI</div><div class="l">Reads real home-cooked meals from a photo or your voice</div></div>
-      <div class="hero-stat reveal"><div class="n">Daily</div><div class="l">Targets that adapt to your logged activity</div></div>
-      <div class="hero-stat reveal"><div class="n">2+</div><div class="l">Household members can share one log, split automatically</div></div>
+      <div class="hero-stat reveal"><div class="n">Daily</div><div class="l">Whole-day coaching that adapts to how today actually went</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="showreel" id="showreel">
+  <div class="wrap">
+    <div class="kicker reveal"><span class="eyebrow">Watch</span></div>
+    <h2 class="sec-title reveal">A real day with Fit-Check, in 24 seconds.</h2>
+    <p class="sec-sub reveal">Breakfast, a workout, a shared lunch, and the evening wrap-up — real screens, real copy.</p>
+    <div class="showreel-frame reveal">
+      <video controls playsinline preload="metadata" poster="/video/brag-final-poster.jpg">
+        <source src="/video/brag-final.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
@@ -531,25 +554,25 @@
 <section class="problem" id="problem">
   <div class="wrap">
     <div class="kicker reveal"><span class="eyebrow">The Problem</span></div>
-    <h2 class="sec-title reveal">Nutrition apps assume a life that doesn't change.</h2>
-    <p class="sec-sub reveal">Thousands of nutrition apps exist, and almost none of them adapt to how your day actually went — or account for the fact that you might be sharing that meal, not eating it alone. The friction isn't motivation — it's tools built for a static, solitary user.</p>
+    <h2 class="sec-title reveal">Your health lives in four different apps.</h2>
+    <p class="sec-sub reveal">A food tracker for meals, a separate log for workouts, a wearable app that never talks to either, and a spreadsheet to split the bill when you cook together. Four tools, four logins, zero picture of your actual day.</p>
 
     <div class="p-grid">
       <div class="p-card reveal">
         <div class="p-num">01</div>
-        <div><h3>Logging is tedious</h3><p>Manual database search, portion guessing, and constant data entry create enough friction that most users stop tracking within weeks.</p></div>
+        <div><h3>Four apps, zero picture</h3><p>Food tracker, workout log, wearable app, meal-split spreadsheet — none of them talk to each other, so a single view of your day never exists.</p></div>
       </div>
       <div class="p-card reveal">
         <div class="p-num">02</div>
-        <div><h3>Recommendations are static</h3><p>A desk day and a marathon-training day get the same calorie target. Fixed plans ignore how life actually varies.</p></div>
+        <div><h3>Recommendations are static</h3><p>A desk day and a training day get the same calorie target. Fixed plans ignore how life actually varies.</p></div>
       </div>
       <div class="p-card reveal">
         <div class="p-num">03</div>
-        <div><h3>Data lives in silos</h3><p>Wearables capture steps, heart rate, recovery and sleep. Nutrition apps capture food. The two systems never talk to each other.</p></div>
+        <div><h3>Coaching looks backward, not forward</h3><p>Most apps summarize what you already did. Real coaching should tell you what to eat next and how hard to train tomorrow.</p></div>
       </div>
       <div class="p-card reveal">
         <div class="p-num">04</div>
-        <div><h3>Eating is treated as solitary</h3><p>Families and couples share meals while needing different nutrition. Existing apps are built for one person, not one table.</p></div>
+        <div><h3>Eating is still treated as solitary</h3><p>Families and couples share meals while needing different nutrition. Existing apps are built for one person, not one table.</p></div>
       </div>
     </div>
   </div>
@@ -587,17 +610,17 @@
 <section class="solution" id="solution">
   <div class="wrap">
     <div class="kicker reveal"><span class="eyebrow">Our Solution</span></div>
-    <h2 class="sec-title reveal">One adaptive engine, fed by real life.</h2>
-    <p class="sec-sub reveal">Meal recognition and wearable signal feed one continuously adjusting recommendation engine — turning a fixed daily number into a moving target that matches how the day actually went.</p>
+    <h2 class="sec-title reveal">One adaptive engine, fed by your whole day.</h2>
+    <p class="sec-sub reveal">Meals, workouts, and wearable signal all feed one continuously adjusting engine — turning five separate trackers into one system that knows what today actually looked like.</p>
 
     <div class="engine reveal">
       <div class="col">
         <div class="col-title">Inputs</div>
         <ul>
           <li>Photo / voice meal log</li>
-          <li>Apple Health</li>
-          <li>Fitbit · Garmin · Whoop</li>
-          <li>Sleep & recovery data</li>
+          <li>Logged workouts</li>
+          <li>Apple Health · Fitbit · Garmin · Whoop</li>
+          <li>Household meals, split per person</li>
         </ul>
       </div>
       <div class="col center">
@@ -610,13 +633,13 @@
             <svg viewBox="0 0 64 64"><circle class="t" cx="32" cy="32" r="26" stroke-dasharray="163" stroke-dashoffset="0"/><circle class="p" cx="32" cy="32" r="26" stroke-dasharray="163" stroke-dashoffset="95"/></svg>
           </div>
         </div>
-        <p>Recalculates calories and macros from today's real activity — not yesterday's static plan.</p>
+        <p>Recalculates today's targets from what you ate, how you moved, and who you're sharing a meal with.</p>
       </div>
       <div class="col">
         <div class="col-title">Output</div>
         <ul>
           <li style="font-style:italic;">"Increase protein today."</li>
-          <li style="font-style:italic;">"Hydrate after the workout."</li>
+          <li style="font-style:italic;">"Rest day tomorrow — well earned."</li>
           <li style="font-style:italic;">"Carbs down this evening."</li>
           <li>One meal, individual portions</li>
         </ul>
@@ -628,13 +651,13 @@
 <section class="modules" id="product">
   <div class="wrap">
     <div class="kicker reveal"><span class="eyebrow">Product</span></div>
-    <h2 class="sec-title reveal">Five connected modules.</h2>
+    <h2 class="sec-title reveal">Five pillars. One app.</h2>
     <div class="mod-row">
-      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z M12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></div><h3>Intelligent Meal Logging</h3><p>Photo, voice, or barcode input. AI estimates calories, protein, carbs, fats and serving size — tuned for home-cooked, mixed-ingredient meals.</p></div>
-      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></div><h3>Adaptive Nutrition Engine</h3><p>Daily targets shift with activity, recovery, sleep, weight trend and personal goals.</p></div>
-      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M7 9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9z M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7 M9 17v1.5A1.5 1.5 0 0 0 10.5 20h3a1.5 1.5 0 0 0 1.5-1.5V17 M12 10.5V12l1.5 1"/></svg></div><h3>Wearable Intelligence</h3><p>Syncs Apple Health, Fitbit, Garmin and Whoop — one connection per household member.</p></div>
-      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4v-4a2 2 0 0 1-2-2V6z M14 7l.6 1.4L16 9l-1.4.6L14 11l-.6-1.4L11 9l1.4-.6z"/></svg></div><h3>AI Coaching</h3><p>Plain-language daily guidance, delivered in-app or via WhatsApp — whichever the user prefers.</p></div>
-      <div class="mod-card hi reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M9 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z M15 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg></div><h3>Shared Nutrition</h3><p>One shared meal, split automatically into individually personalized portions — for couples, families, teams.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 8a2 2 0 0 1 2-2h1.5l1-1.5h7l1 1.5H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z M12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></div><h3>Food Tracking</h3><p>Photo, voice, or barcode input. AI estimates calories, protein, carbs, fats and serving size — tuned for home-cooked, mixed-ingredient meals.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M3 13h3.5l2-7 3 13 2-9 1.5 3H21"/></svg></div><h3>Workout Tracking</h3><p>Log a workout — type, duration, intensity — in seconds. No wearable? Log it by hand and it still adjusts today's targets.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M7 9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9z M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7 M9 17v1.5A1.5 1.5 0 0 0 10.5 20h3a1.5 1.5 0 0 0 1.5-1.5V17 M12 10.5V12l1.5 1"/></svg></div><h3>Wearable Sync</h3><p>Syncs Apple Health, Fitbit, Garmin and Whoop — workouts and recovery flow in automatically, no manual logging needed.</p></div>
+      <div class="mod-card reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M9 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z M15 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg></div><h3>Household Tracking</h3><p>One shared meal, split automatically into individual portions — built for however many people are at your table, not just two.</p></div>
+      <div class="mod-card hi reveal"><div class="mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="icon-draw" d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4v-4a2 2 0 0 1-2-2V6z M14 7l.6 1.4L16 9l-1.4.6L14 11l-.6-1.4L11 9l1.4-.6z"/></svg></div><h3>Whole-Day Coaching</h3><p>Food and activity together, every day — what to eat next, and whether to push hard or ease off your next workout.</p></div>
     </div>
   </div>
 </section>
@@ -682,7 +705,7 @@
     <div class="funnel">
       <div class="f-row f1 reveal">
         <div class="f-t">Today</div>
-        <div class="f-d">Health-conscious consumers seeking sustainable, adaptive nutrition support.</div>
+        <div class="f-d">Health-conscious individuals and households who want one app for food, fitness and daily coaching instead of four.</div>
       </div>
       <div class="f-row f2 reveal">
         <div class="f-t">Expansion</div>
@@ -706,7 +729,7 @@
         <div class="t-sub">Get started</div>
         <ul>
           <li><span class="dot"></span>Meal logging</li>
-          <li><span class="dot"></span>Nutrition tracking</li>
+          <li><span class="dot"></span>Workout tracking</li>
           <li><span class="dot"></span>Basic AI recommendations</li>
         </ul>
       </div>
@@ -718,7 +741,7 @@
           <li><span class="dot"></span>Advanced wearable integration</li>
           <li><span class="dot"></span>Adaptive nutrition engine</li>
           <li><span class="dot"></span>Shared meal mode</li>
-          <li><span class="dot"></span>Advanced coaching</li>
+          <li><span class="dot"></span>Whole-day coaching</li>
         </ul>
       </div>
     </div>
@@ -730,20 +753,21 @@
   <div class="wrap">
     <div class="kicker reveal"><span class="eyebrow">Competitive Landscape</span></div>
     <h2 class="sec-title reveal">The core is already built. The wedge is what's left.</h2>
-    <p class="sec-sub reveal">Fitia, Nutrola and MealThinker already do shared-meal, divergent-goal tracking — that's table stakes now, not a differentiator. Ours is accuracy on real home-cooked meals and a coaching channel people already use.</p>
+    <p class="sec-sub reveal">Fitia, Nutrola and MealThinker already do shared-meal, divergent-goal tracking — that's table stakes now, not a differentiator. Ours is one app across food, workouts, wearables and whole-day coaching.</p>
     <table class="cmp reveal">
       <thead>
         <tr><th>Capability</th><th class="c fc">Fit-Check</th><th class="c">Fitia</th><th class="c">Nutrola</th><th class="c">MealThinker</th></tr>
       </thead>
       <tbody>
-        <tr><td>Shared meal, split macros</td><td class="c yes fc">✓</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+        <tr><td>Food + workout + wearable, one app</td><td class="c yes fc">✓</td><td class="c no">–</td><td class="c no">–</td><td class="c no">–</td></tr>
         <tr><td>Home-cooked meal accuracy</td><td class="c yes fc">Core focus</td><td class="c no">Generic</td><td class="c no">Generic</td><td class="c no">Generic</td></tr>
         <tr><td>Wearable sync, per person</td><td class="c yes fc">✓</td><td class="c partial">Partial</td><td class="c no">–</td><td class="c no">–</td></tr>
-        <tr><td>WhatsApp-native coaching</td><td class="c yes fc">✓</td><td class="c no">–</td><td class="c no">–</td><td class="c no">–</td></tr>
+        <tr><td>Whole-day coaching (food + activity)</td><td class="c yes fc">✓</td><td class="c no">–</td><td class="c no">–</td><td class="c no">–</td></tr>
+        <tr><td>Household tracking, split automatically</td><td class="c yes fc">✓</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
         <tr><td>Distribution</td><td class="c yes fc">Nutritionists & gyms</td><td class="c no">Paid UA</td><td class="c no">Paid UA</td><td class="c no">Paid UA</td></tr>
       </tbody>
     </table>
-    <p class="cmp-note reveal">Benchmarked against Fitia (10M+ users), Nutrola (2M+ users), and MealThinker — the closest household-nutrition competitors, not generic single-user calorie apps.</p>
+    <p class="cmp-note reveal">Benchmarked against Fitia (10M+ users), Nutrola (2M+ users), and MealThinker — nutrition-only apps. None of them track workouts, sync wearables, or coach your whole day in one place.</p>
   </div>
 </section>
 
@@ -771,7 +795,7 @@
       <div class="tl-line"></div>
       <div class="tl-row">
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-phase">PHASE 1</div><div class="tl-title">Discovery</div><div class="tl-desc">Validate pain points through direct customer interviews.</div></div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-phase">PHASE 2</div><div class="tl-title">Build MVP</div><div class="tl-desc">Home-cooked meal accuracy, shared meal logging, per-person macro split, wearable sync.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-phase">PHASE 2</div><div class="tl-title">Build MVP</div><div class="tl-desc">Home-cooked meal accuracy, workout tracking, household sharing, wearable sync, early coaching.</div></div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-phase">PHASE 3</div><div class="tl-title">Beta Launch</div><div class="tl-desc">Collect behavioural data, measure retention, improve recommendations.</div></div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-phase">PHASE 4</div><div class="tl-title">Commercial Launch</div><div class="tl-desc">Scale partnerships, expand internationally, build enterprise offerings.</div></div>
       </div>
@@ -795,7 +819,7 @@
       </ul>
       <div class="reveal">
         <div class="eyebrow on-dark" style="margin-bottom:14px;">Long-Term Vision</div>
-        <p class="vision-quote">The <span class="hl">operating system</span> for personalized nutrition — connecting food, activity, recovery and behaviour into one intelligence layer.</p>
+        <p class="vision-quote">The <span class="hl">operating system</span> for personal health — connecting food, activity, recovery and behaviour into one intelligence layer.</p>
       </div>
     </div>
     <div class="cta-row reveal">
@@ -807,7 +831,7 @@
 
 <footer>
   <div style="max-width:1120px; margin:0 auto; padding:0 32px;">
-    <div>FIT-CHECK © 2026 — ADAPTIVE NUTRITION INTELLIGENCE</div>
+    <div>FIT-CHECK © 2026 — YOUR WHOLE HEALTH, ONE APP</div>
     <div style="display:flex; gap:18px; justify-content:center; margin-top:12px; font-family:'Inter',sans-serif; font-size:13px; letter-spacing:normal; text-transform:none;">
       <a href="/about.html" style="color:inherit; text-decoration:none;">About</a>
       <a href="/contact.html" style="color:inherit; text-decoration:none;">Contact</a>
