@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Fit-Check</title>
+<meta name="description" content="Fit-Check tees, €20 each. Coming soon. Browse the first 40 designs.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1B3A2B">
+<link rel="canonical" href="https://fitcheckcoach.com/shop.html">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/page.css">
+<style>
+.shopwrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.hero-shop{padding:54px 0 22px}
+.hero-shop h1{font-size:clamp(34px,6vw,60px);margin:0 0 12px}
+.hero-shop .lead{max-width:60ch;margin:0 0 18px}
+.soon{display:inline-flex;align-items:center;gap:10px;background:var(--forest);color:var(--paper);border-radius:100px;padding:10px 18px;font-weight:600;font-size:14.5px}
+.soon b{color:var(--amber);font-size:17px}
+.filters{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;padding:14px 0 8px}
+.fg{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.fg>span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+.chip{border:1px solid var(--line);background:#fff;border-radius:100px;padding:8px 15px;font:500 13.5px 'Inter',sans-serif;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--forest);color:var(--paper);border-color:var(--forest)}
+.sw{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);padding:0;cursor:pointer}.sw.on{outline:3px solid var(--amber);outline-offset:2px}
+.count{font-size:13.5px;color:var(--muted);padding:2px 0 14px}
+.pgrid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));padding-bottom:70px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.pcard .im{display:block;width:100%;border:0;padding:0;background:var(--mist);cursor:zoom-in;position:relative}
+.pcard img{width:100%;height:auto;display:block;aspect-ratio:1.34;object-fit:cover}
+.badge{position:absolute;left:12px;top:12px;background:var(--forest);color:var(--paper);font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:100px}
+.pmeta{padding:16px 18px 18px;display:grid;gap:7px}
+.pmeta h3{margin:0;font:600 19px/1.25 'Fraunces',serif;color:var(--forest)}
+.prow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dot{width:13px;height:13px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.tag{font-size:12px;border:1px solid var(--line);border-radius:100px;padding:3px 10px;color:var(--muted)}
+.price{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px;padding-top:10px;border-top:1px solid var(--line)}
+.price b{font:600 20px 'Inter',sans-serif;color:var(--ink)}.price span{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.pmeta p{margin:0;font-size:14px;color:var(--muted)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--muted)}
+.fine{font-size:13px;color:var(--muted);max-width:80ch;padding:0 0 60px;margin:0}
+#mod{position:fixed;inset:0;background:rgba(10,18,13,.88);display:none;z-index:50;overflow:auto;padding:22px}#mod.on{display:block}
+.pp{max-width:1280px;margin:0 auto;background:var(--paper);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1.6fr 1fr}
+.pp .big{background:var(--mist);display:flex;align-items:center;justify-content:center}.pp .big img{width:100%;max-height:86vh;object-fit:contain;display:block}
+.pp .info{padding:28px;display:flex;flex-direction:column;gap:14px}.pp h2{margin:0;font:600 28px/1.15 'Fraunces',serif;color:var(--forest)}
+.pp .info p{margin:0;color:var(--muted)}.pp .bigprice{font:600 26px 'Inter',sans-serif}
+.pnav{display:flex;gap:10px;margin-top:auto}.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 16px;font:600 14.5px 'Inter',sans-serif;cursor:pointer;color:var(--ink)}
+.x{position:fixed;right:20px;top:14px;z-index:60;width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:22px;cursor:pointer}
+@media (max-width:860px){.pp{grid-template-columns:1fr}.pp .big img{max-height:58vh}.shopwrap{padding:0 20px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap" style="max-width:1240px">
+    <a class="brand" href="/">
+      <span class="brand-mark"><svg width="28" height="28" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="#7C9885" stroke-width="2.5"/><circle cx="20" cy="20" r="10" fill="none" stroke="#E8A33D" stroke-width="3"/></svg></span>
+      Fit-Check
+    </a>
+    <a class="back" href="/">← Back to home</a>
+  </div>
+</nav>
+<main style="padding:0">
+<div class="shopwrap">
+  <section class="hero-shop">
+    <span class="eyebrow">Shop · Merch</span>
+    <h1>The Fit-Check shop</h1>
+    <p class="lead">Training tees built around the two-ring Fit-Check mark. Forty designs in earthy greens, sage, cream and warm tones.</p>
+    <div class="soon"><b>€20</b> per tee · Coming soon</div>
+  </section>
+  <div class="filters" id="filters"></div>
+  <div class="count" id="count"></div>
+  <div class="pgrid" id="grid"></div>
+  <p class="fine">These are concept previews. The tees are not on sale yet, so there is no checkout, and the final fabric, colours and print may differ. Prices are in euros.</p>
+</div>
+</main>
+<div id="mod" role="dialog" aria-modal="true" aria-label="Design details"><button class="x" id="mx" aria-label="Close">×</button>
+  <div class="pp"><div class="big"><img id="mi" alt=""></div><div class="info"><div class="prow" id="mb"></div><h2 id="mt"></h2><p id="mn"></p><p>Colour: <b id="mc"></b></p><div class="bigprice">€20 <span class="badge" style="position:static;display:inline-block;background:var(--amber);color:var(--forest)">Coming soon</span></div><div class="pnav"><button class="btn" id="mp">Previous</button><button class="btn" id="mnx">Next</button></div></div></div>
+</div>
+<script>
+var D=[{"id": "A01", "design": "Left-chest icon", "colour": "Forest", "group": "Green", "tags": ["Minimal", "Icon"], "note": "The classic. Two-ring icon on the wearer's left chest.", "src": "/img/shop/a01.jpg"}, {"id": "A02", "design": "Left-chest icon", "colour": "Cream", "group": "Cream", "tags": ["Minimal", "Icon"], "note": "The classic. Two-ring icon on the wearer's left chest.", "src": "/img/shop/a02.jpg"}, {"id": "A03", "design": "Left-chest lockup", "colour": "Deep forest", "group": "Green", "tags": ["Minimal", "Lockup"], "note": "Icon and wordmark together, left chest.", "src": "/img/shop/a03.jpg"}, {"id": "A04", "design": "Left-chest lockup", "colour": "Cream", "group": "Cream", "tags": ["Minimal", "Lockup"], "note": "Icon and wordmark together, left chest.", "src": "/img/shop/a04.jpg"}, {"id": "A05", "design": "Centred lockup", "colour": "Sage", "group": "Sage", "tags": ["Lockup"], "note": "Horizontal lockup across the centre of the chest.", "src": "/img/shop/a05.jpg"}, {"id": "A06", "design": "Centred lockup", "colour": "Forest", "group": "Green", "tags": ["Lockup"], "note": "Horizontal lockup across the centre of the chest.", "src": "/img/shop/a06.jpg"}, {"id": "A07", "design": "Centred stacked lockup", "colour": "Cream", "group": "Cream", "tags": ["Tagline lockup"], "note": "Stacked lockup with the tagline, centre chest.", "src": "/img/shop/a07.jpg"}, {"id": "A08", "design": "Centred stacked lockup", "colour": "Heather forest", "group": "Green", "tags": ["Tagline lockup"], "note": "Stacked lockup with the tagline, centre chest.", "src": "/img/shop/a08.jpg"}, {"id": "A09", "design": "Oversized icon", "colour": "Amber orange", "group": "Amber", "tags": ["Graphic", "Icon"], "note": "The two rings at large scale, centred on the chest.", "src": "/img/shop/a09.jpg"}, {"id": "A10", "design": "Oversized icon", "colour": "Ink forest", "group": "Ink", "tags": ["Graphic", "Icon"], "note": "The two rings at large scale, centred on the chest.", "src": "/img/shop/a10.jpg"}, {"id": "A11", "design": "Small stacked lockup", "colour": "Mint sage", "group": "Sage", "tags": ["Minimal", "Tagline lockup"], "note": "Stacked lockup with tagline, small on the left chest.", "src": "/img/shop/a11.jpg"}, {"id": "A12", "design": "Small stacked lockup", "colour": "Pine", "group": "Green", "tags": ["Minimal", "Tagline lockup"], "note": "Stacked lockup with tagline, small on the left chest.", "src": "/img/shop/a12.jpg"}, {"id": "A13", "design": "Hem lockup", "colour": "Clay coral", "group": "Coral", "tags": ["Minimal", "Hem"], "note": "Nothing on the chest. A small lockup at the lower hem.", "src": "/img/shop/a13.jpg"}, {"id": "A14", "design": "Hem lockup", "colour": "Forest", "group": "Green", "tags": ["Minimal", "Hem"], "note": "Nothing on the chest. A small lockup at the lower hem.", "src": "/img/shop/a14.jpg"}, {"id": "A15", "design": "Badge icon", "colour": "Sage green", "group": "Sage", "tags": ["Minimal", "Icon"], "note": "Tiny icon centred just below the collar.", "src": "/img/shop/a15.jpg"}, {"id": "A16", "design": "Badge icon", "colour": "Ochre", "group": "Amber", "tags": ["Minimal", "Icon"], "note": "Tiny icon centred just below the collar.", "src": "/img/shop/a16.jpg"}, {"id": "A17", "design": "Large chest lockup", "colour": "Sage", "group": "Sage", "tags": ["Lockup", "Graphic"], "note": "A big horizontal lockup, lower on the chest.", "src": "/img/shop/a17.jpg"}, {"id": "A18", "design": "Large chest lockup", "colour": "Pine", "group": "Green", "tags": ["Lockup", "Graphic"], "note": "A big horizontal lockup, lower on the chest.", "src": "/img/shop/a18.jpg"}, {"id": "A19", "design": "Right-chest icon", "colour": "Teal sage", "group": "Sage", "tags": ["Minimal", "Icon"], "note": "Icon on the wearer's right chest.", "src": "/img/shop/a19.jpg"}, {"id": "A20", "design": "Right-chest icon", "colour": "Coral", "group": "Coral", "tags": ["Minimal", "Icon"], "note": "Icon on the wearer's right chest.", "src": "/img/shop/a20.jpg"}, {"id": "B01", "design": "Chest icon + sleeve icon", "colour": "Forest", "group": "Green", "tags": ["Minimal", "Sleeve"], "note": "Two-ring icon on the left chest and a smaller one on the wearer's right sleeve.", "src": "/img/shop/b01.jpg"}, {"id": "B02", "design": "Chest icon + hem lockup", "colour": "Pine", "group": "Green", "tags": ["Minimal", "Hem"], "note": "Small icon on the chest and a small lockup low at the right hem.", "src": "/img/shop/b02.jpg"}, {"id": "B03", "design": "Monogram grid", "colour": "Sage", "group": "Sage", "tags": ["Repeat"], "note": "The original icon repeated across the whole body, unaltered.", "src": "/img/shop/b03.jpg"}, {"id": "B04", "design": "Framed lockup", "colour": "Cream", "group": "Cream", "tags": ["Lockup", "Graphic"], "note": "Horizontal lockup centred between two fine lines.", "src": "/img/shop/b04.jpg"}, {"id": "B05", "design": "Orbit lines + icon", "colour": "Amber orange", "group": "Amber", "tags": ["Graphic"], "note": "Custom ring lines sweep in from the lower left. Small icon on the chest.", "src": "/img/shop/b05.jpg"}, {"id": "B06", "design": "Big stacked lockup", "colour": "Clay coral", "group": "Coral", "tags": ["Tagline lockup", "Graphic"], "note": "Stacked lockup with tagline at large scale across the chest.", "src": "/img/shop/b06.jpg"}, {"id": "B07", "design": "Chest lockup + hem icon", "colour": "Heather forest", "group": "Green", "tags": ["Minimal", "Hem"], "note": "Small lockup left chest, tiny icon at the right hem.", "src": "/img/shop/b07.jpg"}, {"id": "B08", "design": "Low-left oversized icon", "colour": "Mint sage", "group": "Sage", "tags": ["Graphic", "Icon"], "note": "A large icon anchored low on the left of the chest.", "src": "/img/shop/b08.jpg"}, {"id": "B09", "design": "Upper-chest wide lockup", "colour": "Deep forest", "group": "Green", "tags": ["Lockup"], "note": "A wide horizontal lockup sitting high across the chest.", "src": "/img/shop/b09.jpg"}, {"id": "B10", "design": "Mirrored icons", "colour": "Cream", "group": "Cream", "tags": ["Icon", "Minimal"], "note": "An icon on each side of the chest, left and right.", "src": "/img/shop/b10.jpg"}, {"id": "B11", "design": "Sleeve icon only", "colour": "Sage green", "group": "Sage", "tags": ["Sleeve", "Minimal"], "note": "Nothing on the chest. One icon on the sleeve.", "src": "/img/shop/b11.jpg"}, {"id": "B12", "design": "Orbit lines + big lockup", "colour": "Forest", "group": "Green", "tags": ["Graphic", "Lockup"], "note": "Ring lines sweep up from the lower left under a centred lockup.", "src": "/img/shop/b12.jpg"}, {"id": "B13", "design": "Staggered icon grid", "colour": "Sage", "group": "Sage", "tags": ["Repeat"], "note": "A tighter, smaller icon repeat across the body.", "src": "/img/shop/b13.jpg"}, {"id": "B14", "design": "Framed icon", "colour": "Ochre", "group": "Amber", "tags": ["Graphic", "Icon"], "note": "Icon centred between two fine lines.", "src": "/img/shop/b14.jpg"}, {"id": "B15", "design": "Stacked chest + hem icon", "colour": "Forest", "group": "Green", "tags": ["Tagline lockup", "Hem"], "note": "Small stacked lockup, left chest, and an icon at the hem.", "src": "/img/shop/b15.jpg"}, {"id": "B16", "design": "Lower-chest lockup", "colour": "Cream", "group": "Cream", "tags": ["Lockup"], "note": "A large horizontal lockup placed lower on the chest.", "src": "/img/shop/b16.jpg"}, {"id": "B17", "design": "Orbit lines right + icon", "colour": "Pine", "group": "Green", "tags": ["Graphic"], "note": "Ring lines come in from the lower right. Icon on the left chest.", "src": "/img/shop/b17.jpg"}, {"id": "B18", "design": "Double icon, large", "colour": "Teal sage", "group": "Sage", "tags": ["Icon", "Graphic"], "note": "A large icon on each side of the upper chest.", "src": "/img/shop/b18.jpg"}, {"id": "B19", "design": "Framed stacked lockup", "colour": "Coral", "group": "Coral", "tags": ["Tagline lockup", "Graphic"], "note": "Stacked lockup with tagline centred between two fine lines.", "src": "/img/shop/b19.jpg"}, {"id": "B20", "design": "Mega icon + hem lockup", "colour": "Ink forest", "group": "Ink", "tags": ["Graphic", "Hem"], "note": "A huge icon centred on the chest and a small lockup at the hem.", "src": "/img/shop/b20.jpg"}], SW={"Green": "#1B3A2B", "Ink": "#16241B", "Sage": "#7C9885", "Cream": "#EDE6D6", "Amber": "#E39A45", "Coral": "#D9694F"}, state={colour:'All',tag:'All',q:''}, vis=[], cur=0;
+var $=function(i){return document.getElementById(i)};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function filt(){return D.map(function(d,i){return i}).filter(function(i){var d=D[i];if(state.colour!=='All'&&d.group!==state.colour)return false;if(state.tag!=='All'&&d.tags.indexOf(state.tag)<0)return false;return true})}
+function render(){vis=filt();var g=$('grid');g.textContent='';$('count').textContent=vis.length+' of '+D.length+' designs';
+ if(!vis.length){g.appendChild(el('div','empty','No designs match these filters.'));return}
+ vis.forEach(function(i,n){var d=D[i],c=el('article','pcard'),b=el('button','im');b.setAttribute('aria-label','Open '+d.design+', '+d.colour);
+  var im=new Image();im.src=d.src;im.alt=d.design+' tee in '+d.colour;im.loading='lazy';im.decoding='async';im.width=1000;im.height=746;b.appendChild(im);b.appendChild(el('span','badge','Coming soon'));b.onclick=function(){openM(n)};c.appendChild(b);
+  var m=el('div','pmeta');m.appendChild(el('h3','',d.design));var r=el('div','prow'),dot=el('span','dot');dot.style.background=SW[d.group];r.appendChild(dot);r.appendChild(el('span','',d.colour));m.appendChild(r);
+  var t=el('div','prow');d.tags.forEach(function(x){t.appendChild(el('span','tag',x))});m.appendChild(t);m.appendChild(el('p','',d.note));
+  var p=el('div','price');p.appendChild(el('b','','€20'));p.appendChild(el('span','','Coming soon'));m.appendChild(p);c.appendChild(m);g.appendChild(c)})}
+function chips(label,opts,key,sw){var f=el('div','fg');f.appendChild(el('span','',label));opts.forEach(function(o){var b;
+  if(sw&&o!=='All'){b=el('button','sw');b.style.background=SW[o];b.title=o;b.setAttribute('aria-label',o)}else{b=el('button','chip',o)}
+  b.onclick=function(){state[key]=o;buildF();render()};if(state[key]===o)b.classList.add('on');f.appendChild(b)});return f}
+function buildF(){var F=$('filters');F.textContent='';F.appendChild(chips('Colour',['All','Green','Sage','Cream','Amber','Coral','Ink'],'colour',true));F.appendChild(chips('Style',['All','Minimal','Icon','Lockup','Tagline lockup','Graphic','Repeat','Sleeve','Hem'],'tag'))}
+function openM(n){cur=n;var d=D[vis[n]];$('mi').src=d.src;$('mi').alt=d.design+' tee in '+d.colour;$('mt').textContent=d.design;$('mn').textContent=d.note;$('mc').textContent=d.colour;var b=$('mb');b.textContent='';d.tags.forEach(function(x){b.appendChild(el('span','tag',x))});$('mod').classList.add('on');document.body.style.overflow='hidden'}
+function closeM(){$('mod').classList.remove('on');document.body.style.overflow=''}
+function step(k){cur=(cur+k+vis.length)%vis.length;openM(cur)}
+$('mx').onclick=closeM;$('mp').onclick=function(){step(-1)};$('mnx').onclick=function(){step(1)};$('mod').onclick=function(e){if(e.target===$('mod'))closeM()};
+document.addEventListener('keydown',function(e){if(!$('mod').classList.contains('on'))return;if(e.key==='Escape')closeM();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+buildF();render();
+</script>
+</body>
+</html>
