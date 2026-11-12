@@ -397,6 +397,7 @@
   .nav{position:fixed; top:0; left:0; right:0; -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);}
   body{padding-top:64px;}
   section[id]{scroll-margin-top:72px;}
+  .menu-btn{display:none;}
   .hero{min-height:0; padding:44px 0 0; display:block;}
   .hero .wrap{padding-bottom:56px; grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);}
   .hero h1{font-size:clamp(42px,5vw,78px); line-height:1.02;}
@@ -483,6 +484,21 @@
     .dayclock{display:none;}
     .nav .wrap{height:54px;} body{padding-top:54px;} .nav .brand{font-size:18px;} .nav .btn.small{padding:8px 14px; font-size:13.5px;}
     .nav.solid{box-shadow:0 6px 18px -12px rgba(15,33,23,.6);}
+    /* phone menu: a button in the top bar opens the section links as a drop-down */
+    .nav .wrap{gap:10px;}
+    .menu-btn{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; width:40px; height:40px; flex:none; border-radius:50%; border:1px solid rgba(22,39,29,.35); background:transparent; color:inherit; cursor:pointer; padding:0;}
+    .nav.dark .menu-btn{border-color:rgba(255,255,255,.4);}
+    .menu-btn i{display:block; width:16px; height:2px; border-radius:2px; background:currentColor; transition:transform .25s ease, opacity .2s ease;}
+    .nav.open .menu-btn i:nth-child(1){transform:translateY(6px) rotate(45deg);}
+    .nav.open .menu-btn i:nth-child(2){opacity:0;}
+    .nav.open .menu-btn i:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+    .nav .nav-links{display:flex; flex-direction:column; gap:0; position:absolute; left:0; right:0; top:100%; margin:0; padding:4px 20px 14px; background:rgba(243,245,238,.98); box-shadow:0 24px 40px -20px rgba(15,33,23,.55); opacity:0; transform:translateY(-10px); pointer-events:none; transition:opacity .2s ease, transform .25s ease;}
+    .nav.dark .nav-links{background:rgba(15,33,23,.98);}
+    .nav.open{background:rgba(243,245,238,.98);} .nav.dark.open{background:rgba(15,33,23,.98);}
+    .nav.open .nav-links{opacity:1; transform:none; pointer-events:auto;}
+    .nav .nav-links a{opacity:1; font-size:18px; font-family:var(--serif); padding:15px 2px; border-top:1px solid rgba(22,39,29,.12);}
+    .nav .nav-links a:first-child{border-top:0;}
+    .nav.dark .nav-links a{border-top-color:rgba(255,255,255,.12);}
     .hero{padding-top:30px;} .hero .wrap{grid-template-columns:1fr;} .hero h1{font-size:44px;} .facts{grid-template-columns:1fr; gap:14px; margin-top:34px;} .facts b{font-size:24px;}
     .sec{padding:72px 0;}
     .pgrid{grid-template-columns:1fr; margin-top:34px;}
@@ -501,8 +517,9 @@
 <div class="sun" id="sun" aria-hidden="true"><b></b></div>
 <header class="nav"><div class="wrap">
     <a class="brand" href="/"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#7C9885" stroke-width="2.5"/><circle cx="20" cy="20" r="10" fill="none" stroke="#E8A33D" stroke-width="3"/></svg>Fit-Check</a>
-    <nav class="nav-links" aria-label="Sections"><a href="#problem">The problem</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#try">Try it</a><a href="#video">Video</a><a href="#shop">Shop</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav-links" id="navLinks" aria-label="Sections"><a href="#problem">The problem</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#try">Try it</a><a href="#video">Video</a><a href="#shop">Shop</a><a href="#faq">FAQ</a></nav>
     <a class="btn small forest" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Open the app</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i><i></i></button>
 </div></header>
 <main>
 <section class="hero tone-l" data-sky="0">
@@ -912,6 +929,18 @@
       rig.style.setProperty('--rx', (6 - (e.clientY / innerHeight - 0.5) * 18).toFixed(1) + 'deg');
     });
   }
+})();
+</script>
+<script>
+// Phone menu: the button in the top bar opens and closes the section links.
+(function(){
+  var nav = document.querySelector('.nav'), btn = document.getElementById('menuBtn'), links = document.getElementById('navLinks');
+  if (!nav || !btn || !links) return;
+  function set(open){ nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); btn.setAttribute('aria-label', open ? 'Close menu' : 'Menu'); }
+  btn.addEventListener('click', function(){ set(!nav.classList.contains('open')); });
+  links.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') set(false); });
+  document.addEventListener('click', function(e){ if (!nav.contains(e.target)) set(false); });
 })();
 </script>
 <script>
