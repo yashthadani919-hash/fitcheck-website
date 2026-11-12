@@ -18,15 +18,17 @@
 <meta property="og:url" content="https://fitcheckcoach.com/">
 <meta property="og:title" content="Fit-Check — Health & Fitness Tracker App">
 <meta property="og:description" content="Food, workouts, wearables, household sharing, and daily coaching — one health and fitness tracker instead of five separate apps.">
-<meta property="og:image" content="https://fitcheckcoach.com/icon.png">
+<meta property="og:image" content="https://fitcheckcoach.com/video/fitcheck-promo-poster.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
 <meta property="og:video" content="https://fitcheckcoach.com/video/fitcheck-promo.mp4">
 <meta property="og:video:type" content="video/mp4">
 <meta property="og:video:width" content="1920">
 <meta property="og:video:height" content="1080">
-<meta name="twitter:card" content="player">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fit-Check — Health & Fitness Tracker App">
 <meta name="twitter:description" content="Food, workouts, wearables, household sharing, and daily coaching — one health and fitness tracker instead of five separate apps.">
-<meta name="twitter:image" content="https://fitcheckcoach.com/icon.png">
+<meta name="twitter:image" content="https://fitcheckcoach.com/video/fitcheck-promo-poster.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -139,7 +141,7 @@
     --maxw:1120px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:clip;}
   body{
     margin:0;
     background:var(--paper);
@@ -435,7 +437,7 @@
     background:var(--forest); box-shadow:0 30px 60px -20px rgba(27,58,43,0.35);
   }
   .phone-frame img{
-    width:100%; display:block; border-radius:25px;
+    width:100%; height:auto; display:block; border-radius:25px;
     aspect-ratio:9/19.5; object-fit:cover; object-position:top;
   }
   .phone-frame .notch{
@@ -516,7 +518,10 @@
 
   /* ---------- competitive table ---------- */
   .compete{padding:110px 0;}
-  table.cmp{width:100%; border-collapse:collapse; margin-top:52px; border-radius:14px; overflow:hidden; border:1px solid var(--line);}
+  /* On phones the five-column table is wider than the screen: let it scroll
+     sideways inside its own box instead of being cut off. */
+  .cmp-scroll{margin-top:52px; overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:14px;}
+  table.cmp{width:100%; min-width:560px; border-collapse:collapse; border-radius:14px; overflow:hidden; border:1px solid var(--line);}
   table.cmp thead th{background:var(--forest); color:#fff; text-align:left; padding:16px 20px; font-size:12.5px; font-weight:600;}
   table.cmp thead th.c{text-align:center;}
   table.cmp td{padding:15px 20px; font-size:13.5px; border-top:1px solid var(--line);}
@@ -751,19 +756,19 @@
     <p class="sec-sub reveal">Real screens from the live app — not mockups.</p>
     <div class="screens-row">
       <div class="phone reveal">
-        <div class="phone-frame"><span class="notch"></span><img src="/img/screenshot-today.png" alt="Fit-Check Today screen showing two people's calorie rings, streaks, and adaptive targets" loading="lazy"></div>
+        <div class="phone-frame"><span class="notch"></span><img src="/img/app-today.png" alt="Fit-Check Today screen showing a calorie ring, a target raised by a logged workout, and protein, carbs and fat progress" loading="lazy" width="780" height="1690"></div>
         <div class="phone-cap">Today</div>
-        <div class="phone-sub">Per-person rings, streaks, adaptive targets</div>
+        <div class="phone-sub">Rings, streaks and targets that move with your day</div>
       </div>
       <div class="phone reveal">
-        <div class="phone-frame"><span class="notch"></span><img src="/img/screenshot-activity.png" alt="Fit-Check activity screen showing a logged workout adjusting today's calorie target" loading="lazy"></div>
+        <div class="phone-frame"><span class="notch"></span><img src="/img/app-coach.png" alt="Fit-Check coach screen with a note on what to eat next and whether to train hard or take it easy" loading="lazy" width="780" height="1690"></div>
+        <div class="phone-cap">Coach</div>
+        <div class="phone-sub">What to eat next, and how hard to train</div>
+      </div>
+      <div class="phone reveal">
+        <div class="phone-frame"><span class="notch"></span><img src="/img/app-activity.png" alt="Fit-Check Activity screen showing workouts in the last 30 days, monthly active minutes and recent sessions" loading="lazy" width="780" height="1690"></div>
         <div class="phone-cap">Activity</div>
-        <div class="phone-sub">Log a workout, watch targets adjust</div>
-      </div>
-      <div class="phone reveal">
-        <div class="phone-frame"><span class="notch"></span><img src="/img/screenshot-history.png" alt="Fit-Check meal history screen showing home-cooked meals split per person" loading="lazy"></div>
-        <div class="phone-cap">History</div>
-        <div class="phone-sub">Every meal, split per person, always editable</div>
+        <div class="phone-sub">Every workout, minutes and calories burned</div>
       </div>
     </div>
   </div>
@@ -836,7 +841,8 @@
     <div class="kicker reveal"><span class="eyebrow">Competitive Landscape</span></div>
     <h2 class="sec-title reveal">The core is already built. The wedge is what's left.</h2>
     <p class="sec-sub reveal">Fitia, Nutrola and MealThinker already do shared-meal, divergent-goal tracking — that's table stakes now, not a differentiator. Ours is one app across food, workouts, wearables and whole-day coaching.</p>
-    <table class="cmp reveal">
+    <div class="cmp-scroll reveal">
+    <table class="cmp">
       <thead>
         <tr><th>Capability</th><th class="c fc">Fit-Check</th><th class="c">Fitia</th><th class="c">Nutrola</th><th class="c">MealThinker</th></tr>
       </thead>
@@ -849,6 +855,7 @@
         <tr><td>Distribution</td><td class="c yes fc">Nutritionists & gyms</td><td class="c no">Paid UA</td><td class="c no">Paid UA</td><td class="c no">Paid UA</td></tr>
       </tbody>
     </table>
+    </div>
     <p class="cmp-note reveal">Benchmarked against Fitia (10M+ users), Nutrola (2M+ users), and MealThinker — nutrition-only apps. None of them track workouts, sync wearables, or coach your whole day in one place.</p>
   </div>
 </section>
@@ -984,7 +991,29 @@
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.1, rootMargin:'0px 0px 120px 0px'});
-  revealEls.forEach(el=>io.observe(el));
+  // Section headlines start fully clipped (the curtain wipe), and a fully
+  // clipped element never counts as "visible" to IntersectionObserver in
+  // Chrome — so observing the headline itself meant it never appeared. Watch
+  // the element just above it (the eyebrow) or its container instead, and
+  // reveal the headline when that comes into view.
+  const titleProxies = new Map();
+  const titleIo = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      (titleProxies.get(e.target) || []).forEach(t=>t.classList.add('in'));
+      titleIo.unobserve(e.target);
+    });
+  }, {threshold:0, rootMargin:'0px 0px 120px 0px'});
+  revealEls.forEach(el=>{
+    if(el.classList.contains('sec-title')){
+      const proxy = el.previousElementSibling || el.parentElement;
+      if(!titleProxies.has(proxy)) titleProxies.set(proxy, []);
+      titleProxies.get(proxy).push(el);
+      titleIo.observe(proxy);
+    } else {
+      io.observe(el);
+    }
+  });
 
   // Scroll-progress bar — a thin line across the top that fills as you read down the page
   const progressBar = document.getElementById('scrollProgress');
