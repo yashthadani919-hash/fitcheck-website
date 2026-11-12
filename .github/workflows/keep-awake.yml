@@ -1,0 +1,13 @@
+# Backup for netlify/functions/keep-awake.mjs: pings the Fit-Check app so the
+# free Render server does not go to sleep (a sleeping server takes ~20 s to open).
+name: Keep app awake
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - run: curl -s -o /dev/null -m 90 -w "app responded %{http_code} in %{time_total}s\n" https://fit-check-ukc9.onrender.com/api/household/status
