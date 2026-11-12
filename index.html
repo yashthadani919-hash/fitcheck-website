@@ -393,7 +393,9 @@
   @keyframes hop{0%,62%,100%{transform:translateY(0);} 72%{transform:translateY(-8px);} 82%{transform:translateY(0);} 89%{transform:translateY(-3px);} 95%{transform:translateY(0);}}
   .dayclock{font-family:var(--mono); font-size:13px; padding:6px 11px; border-radius:999px; background:rgba(27,58,43,.1); white-space:nowrap;}
   .nav.dark .dayclock{background:rgba(255,255,255,.1); color:var(--amber);}
-  .nav{position:sticky;}
+  /* The top bar is pinned with position:fixed (not sticky): sticky was not holding on phones. */
+  .nav{position:fixed; top:0; left:0; right:0; -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);}
+  body{padding-top:64px;}
   section[id]{scroll-margin-top:72px;}
   .hero{min-height:0; padding:44px 0 0; display:block;}
   .hero .wrap{padding-bottom:56px; grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);}
@@ -479,6 +481,8 @@
 
   @media (max-width:900px){
     .dayclock{display:none;}
+    .nav .wrap{height:54px;} body{padding-top:54px;} .nav .brand{font-size:18px;} .nav .btn.small{padding:8px 14px; font-size:13.5px;}
+    .nav.solid{box-shadow:0 6px 18px -12px rgba(15,33,23,.6);}
     .hero{padding-top:30px;} .hero .wrap{grid-template-columns:1fr;} .hero h1{font-size:44px;} .facts{grid-template-columns:1fr; gap:14px; margin-top:34px;} .facts b{font-size:24px;}
     .sec{padding:72px 0;}
     .pgrid{grid-template-columns:1fr; margin-top:34px;}
