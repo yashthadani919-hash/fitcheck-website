@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fit-Check — Health & Fitness Tracker App</title>
-<meta name="description" content="Fit-Check is a health and fitness tracker that logs your meals, tracks your workouts, syncs wearable data, keeps your household in sync, and coaches your whole day — all in one app.">
-<meta name="keywords" content="Fit-Check, FitCheck, fit check, fitness tracker, health tracker, nutrition tracker, workout tracker, meal tracker app">
+<title>Fit-Check — AI Meal Tracker, Workout Log & Daily Coach</title>
+<meta name="description" content="Log meals from a photo or your voice, track workouts and steps, and split shared meals for everyone you cook with. One app that coaches your whole day. Free in early access.">
 <meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="pa34wmlBcsLzAscAvcLwANNxXgm-KN9Oa3L8pXp_8vo" />
 <meta name="theme-color" content="#1B3A2B">
@@ -16,19 +15,21 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fit-Check">
 <meta property="og:url" content="https://fitcheckcoach.com/">
-<meta property="og:title" content="Fit-Check — Health & Fitness Tracker App">
+<meta property="og:title" content="Fit-Check — AI Meal Tracker, Workout Log & Daily Coach">
 <meta property="og:description" content="Food, workouts, wearables, household sharing, and daily coaching — one health and fitness tracker instead of five separate apps.">
 <meta property="og:image" content="https://fitcheckcoach.com/video/fitcheck-promo-poster.jpg">
 <meta property="og:image:width" content="1920">
 <meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Fit-Check promo frame showing the app on a phone">
 <meta property="og:video" content="https://fitcheckcoach.com/video/fitcheck-promo.mp4">
 <meta property="og:video:type" content="video/mp4">
 <meta property="og:video:width" content="1920">
 <meta property="og:video:height" content="1080">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fit-Check — Health & Fitness Tracker App">
+<meta name="twitter:title" content="Fit-Check — AI Meal Tracker, Workout Log & Daily Coach">
 <meta name="twitter:description" content="Food, workouts, wearables, household sharing, and daily coaching — one health and fitness tracker instead of five separate apps.">
 <meta name="twitter:image" content="https://fitcheckcoach.com/video/fitcheck-promo-poster.jpg">
+<meta name="twitter:image:alt" content="Fit-Check promo frame showing the app on a phone">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,6 +84,24 @@
   "uploadDate": "2026-11-11",
   "contentUrl": "https://fitcheckcoach.com/video/fitcheck-promo.mp4",
   "duration": "PT41S"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fit-Check",
+  "url": "https://fit-check-ukc9.onrender.com",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any (runs in a web browser)",
+  "description": "Meal logging from a photo or voice, workout tracking, Apple Health sync, shared-meal splitting for households and daily whole-day coaching.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "description": "Free during early access."
+  },
+  "publisher": { "@type": "Organization", "name": "Fit-Check", "url": "https://fitcheckcoach.com/" }
 }
 </script>
 <script type="application/ld+json">
@@ -172,7 +191,7 @@
   :root{
     --night:#0F2117; --forest:#1B3A2B; --pine:#234F38; --lift:#27583F; --sage:#7C9885;
     --cream:#F5F7F1; --paper:#F3F5EE; --ink:#16271D; --muted-d:#B7C2BA; --faint-d:#8A9690; --muted-l:#5C6B62;
-    --amber:#E8A33D; --amber-deep:#B9781C; --mint:#A9D4B4; --coral:#D9694F;
+    --amber:#E8A33D; --amber-deep:#B9781C; --amber-text:#8A5A0B; --mint:#A9D4B4; --coral:#D9694F;
     --line-d:rgba(255,255,255,.12); --line-l:rgba(27,58,43,.14);
     --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
     --maxw:1140px;
@@ -345,7 +364,7 @@
   .l-ring span{position:absolute; font-family:var(--serif); font-size:26px; font-weight:600; color:#fff;}
   .l-coach{--z:190px; left:-96px; bottom:9%; width:250px; font-size:13.5px;}
   .l-meal,.l-steps{font-size:13.5px; font-weight:500; padding:9px 14px; border-radius:999px; background:var(--cream); color:#17301F; white-space:nowrap;}
-  .l-meal b,.l-steps b{font-family:var(--mono); font-weight:500; color:var(--amber-deep); margin-left:6px;}
+  .l-meal b,.l-steps b{font-family:var(--mono); font-weight:500; color:var(--amber-text); margin-left:6px;}
   .l-meal{--z:150px; left:-70px; top:11%;} .l-steps{--z:90px; right:-52px; bottom:24%;}
 
   .moment{position:relative; padding:110px 0;}
@@ -414,7 +433,7 @@
   .tape:hover div{animation-play-state:paused;}
   .tape span{font-size:15.5px; white-space:nowrap; color:#16271D; display:inline-flex; align-items:center; gap:10px;}
   .tape span::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--amber); flex:none;}
-  .tape span b{font-family:var(--mono); font-weight:500; color:var(--amber-deep);}
+  .tape span b{font-family:var(--mono); font-weight:500; color:var(--amber-text);}
   .tape.dark{border-color:var(--line-d); background:rgba(255,255,255,.04);} .tape.dark span{color:var(--cream);} .tape.dark span b{color:var(--amber);}
   @keyframes tape{to{transform:translateX(-50%);}}
 
@@ -436,7 +455,7 @@
   .stage .screens img{position:absolute; inset:0; width:100%; height:100%; border-radius:0; opacity:0; transform:scale(1.04); transition:opacity .5s ease, transform .7s cubic-bezier(.2,.8,.2,1);}
   .stage .screens img.on{opacity:1; transform:none;}
   .clock{margin-top:18px; text-align:center; font-family:var(--mono); font-size:13px; color:var(--muted-l);}
-  .clock b{color:var(--amber-deep); font-weight:500;}
+  .clock b{color:var(--amber-text); font-weight:500;}
   .steps{position:relative; list-style:none; margin:0; padding:0 0 0 44px;}
   .steps::before{content:""; position:absolute; left:6px; top:0; bottom:0; width:2px; background:rgba(27,58,43,.16); border-radius:2px;}
   #railFill{position:absolute; left:6px; top:0; width:2px; height:0; background:linear-gradient(var(--pine),var(--amber)); border-radius:2px; box-shadow:0 0 12px rgba(232,163,61,.7);}
@@ -444,7 +463,7 @@
   .step::before{content:""; position:absolute; left:-44px; top:62px; width:14px; height:14px; border-radius:50%; background:var(--paper); border:2px solid var(--sage); transition:all .3s ease;}
   .step.on{opacity:1;} .step.on::before{border-color:var(--amber); background:var(--amber); box-shadow:0 0 0 6px rgba(232,163,61,.2);}
   .stepno{font-weight:600; font-size:14px; color:var(--forest); margin-right:12px;}
-  .step time{font-family:var(--mono); font-size:13.5px; color:var(--amber-deep);}
+  .step time{font-family:var(--mono); font-size:13.5px; color:var(--amber-text);}
   .step h3{margin-top:10px; font-size:clamp(28px,3.2vw,40px); color:var(--forest);}
   .step p{margin-top:14px; color:var(--muted-l); max-width:31em; font-size:17.5px;}
   .step .inline-shot{display:none;}
@@ -509,7 +528,52 @@
     .cards.five{grid-template-columns:1fr;} .cards.five .pillar, .cards.five .pillar:nth-child(4), .cards.five .pillar:nth-child(5){grid-column:auto;}
     .shopgrid{grid-template-columns:1fr;} .end{padding:84px 0 90px;}
   }
+
+  /* Added in site audit: household section, comparison table, small helpers */
+  .hero .fine{max-width:27em;}
+  .hero .fine a{color:inherit; text-decoration:underline; text-underline-offset:3px;}
+  .end p.note{margin-top:14px; font-size:14px;}
+  .end p.note a{color:inherit; text-decoration:underline; text-underline-offset:3px;}
+  .hh{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,300px); gap:72px; align-items:center; margin-top:48px;}
+  .hh ol{list-style:none; margin:0; padding:0; display:grid; gap:26px; counter-reset:hh;}
+  .hh li{position:relative; padding-left:52px; counter-increment:hh;}
+  .hh li::before{content:counter(hh); position:absolute; left:0; top:2px; width:34px; height:34px; border-radius:50%; border:1.5px solid var(--sage); color:var(--forest); font-family:var(--mono); font-size:14px; display:grid; place-items:center;}
+  .hh h3{font-size:22px; color:var(--forest);}
+  .hh li p{margin-top:6px; color:var(--muted-l); font-size:17px; max-width:30em;}
+  .hh .phone{width:min(290px,70vw); margin:0 auto;}
+  .hh-foot{margin-top:36px; display:flex; flex-wrap:wrap; gap:14px 20px; align-items:center;}
+  .hh-foot span{font-size:14px; color:var(--muted-l); max-width:34em;} .hh-foot a:not(.btn){color:inherit; text-decoration:underline; text-underline-offset:3px;}
+  .cmp-wrap{margin-top:44px; overflow-x:auto; border:1px solid var(--line-d); border-radius:18px;}
+  .cmp{width:100%; min-width:680px; border-collapse:collapse; font-size:15.5px;}
+  .cmp th,.cmp td{padding:16px 18px; text-align:left; border-bottom:1px solid var(--line-d); vertical-align:top;}
+  .cmp thead th{font-size:13px; font-family:var(--mono); font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--muted-d);}
+  .cmp tbody th{font-weight:500; color:#fff; width:26%;}
+  .cmp td{color:var(--muted-d);}
+  .cmp tr:last-child th,.cmp tr:last-child td{border-bottom:0;}
+  .cmp .us{background:rgba(232,163,61,.08); color:#fff; border-left:1px solid rgba(232,163,61,.5); border-right:1px solid rgba(232,163,61,.5);}
+  .cmp thead .us{color:var(--amber); border-top:2px solid var(--amber);}
+  .cmp .y{color:var(--mint);} .cmp .n{color:var(--faint-d);}
+  .cmp .us.y{color:#fff;} .cmp .us.y > span[aria-hidden]{color:var(--mint); margin-right:8px;}
+  .cmp-note{margin-top:16px; font-size:14px; color:var(--muted-d); max-width:46em;}
+  .vh{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+  .hh li p{color:#2c3d33;}
+  @media (max-width:860px){
+    .hh{grid-template-columns:1fr; gap:40px; margin-top:32px;}
+    .hh li p{font-size:16.5px;}
+    .cmp-wrap{overflow:visible; border:0; border-radius:0; margin-top:32px;}
+    .cmp{min-width:0; display:block;}
+    .cmp thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);}
+    .cmp tbody{display:grid; gap:14px;}
+    .cmp tr{display:flex; flex-direction:column; border:1px solid var(--line-d); border-radius:16px; padding:16px 18px;}
+    .cmp th,.cmp td{display:block; padding:0; border:0;}
+    .cmp tbody th{width:auto; font-size:16.5px; margin-bottom:10px;}
+    .cmp td{display:block; padding:7px 0; order:2; font-size:15px;}
+    .cmp td::before{content:attr(data-label); display:inline-block; width:9.5em; color:var(--muted-d);}
+    .cmp td.us{order:1; background:rgba(232,163,61,.1); border:1px solid rgba(232,163,61,.5); border-radius:10px; padding:10px 12px; margin-bottom:6px;}
+    .cmp td.us::before{width:auto; margin-right:12px; white-space:nowrap; color:var(--amber); font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;}
+  }
 </style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}[data-split] .w>span{transform:none!important}.rig.pre{opacity:1!important;translate:none!important;--ry:0deg;--rx:0deg}</style></noscript>
 </head>
 <body>
 
@@ -517,8 +581,8 @@
 <div class="sun" id="sun" aria-hidden="true"><b></b></div>
 <header class="nav"><div class="wrap">
     <a class="brand" href="/"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#7C9885" stroke-width="2.5"/><circle cx="20" cy="20" r="10" fill="none" stroke="#E8A33D" stroke-width="3"/></svg>Fit-Check</a>
-    <nav class="nav-links" id="navLinks" aria-label="Sections"><a href="#problem">The problem</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#try">Try it</a><a href="#video">Video</a><a href="#shop">Shop</a><a href="#faq">FAQ</a></nav>
-    <a class="btn small forest" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Open the app</a>
+    <nav class="nav-links" id="navLinks" aria-label="Sections"><a href="#problem">The problem</a><a href="#how">How it works</a><a href="#household">Households</a><a href="#features">Features</a><a href="#try">Try it</a><a href="#video">Video</a><a href="#faq">FAQ</a></nav>
+    <a class="btn small forest" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Try it free</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><i></i><i></i><i></i></button>
 </div></header>
 <main>
@@ -526,17 +590,17 @@
   <div class="wrap">
     <div>
       <h1 data-split>Your whole health.<br>One app.</h1>
-      <p class="lede rv" style="--d:4">Fit-Check logs your meals from a photo or your voice, tracks your workouts and steps, and tells you what to eat next and how hard to train.</p>
-      <p class="tagline rv" style="--d:5">"Your body is your fit."</p>
-      <div class="actions rv" style="--d:6">
-        <a class="btn forest big" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Open the app</a>
+      <p class="lede rv" style="--d:2">Fit-Check logs your meals from a photo or your voice, tracks your workouts and steps, and tells you what to eat next and how hard to train. Cook with someone? It splits the shared meal into each person's own numbers.</p>
+      <p class="tagline rv" style="--d:3">"Your body is your fit."</p>
+      <div class="actions rv" style="--d:3">
+        <a class="btn forest big" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Try Fit-Check free</a>
         <a class="btn line" href="#how" style="color:#16271D">See how it works</a>
       </div>
-      <p class="fine rv" style="--d:7">Free in early access. No account, no download.</p>
+      <p class="fine rv" style="--d:4">Free in early access. Opens in your browser: no account, no download. <a href="/privacy.html">How your data is handled</a></p>
     </div>
     <div class="rig-wrap" id="rigWrap">
       <div class="rig pre" id="rig">
-        <div class="phone"><img src="/img/app-today.png" alt="The Fit-Check Today screen with a calorie ring at 48 percent" width="780" height="1690"></div>
+        <div class="phone"><img src="/img/app-today.webp" alt="The Fit-Check Today screen with a calorie ring at 48 percent" width="600" height="1300" fetchpriority="high" decoding="async"></div>
         <div class="layer l-meal" aria-hidden="true">Chicken and rice<b>650 kcal</b></div>
         <div class="layer l-ring" aria-hidden="true">
           <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,.12)"/><circle cx="60" cy="60" r="50" stroke="#A9D4B4" stroke-dasharray="314" stroke-dashoffset="163"/><circle cx="60" cy="60" r="32" stroke="rgba(255,255,255,.12)"/><circle cx="60" cy="60" r="32" stroke="#E8A33D" stroke-dasharray="201" stroke-dashoffset="129"/></svg>
@@ -569,31 +633,50 @@
     <p class="lead rv">Five steps, shown on the app's real screens with two made-up people, Maya and Leo.</p>
     <div class="day-grid">
       <div class="stage" aria-hidden="true">
-        <div class="phone"><div class="screens"><img src="/img/app-log.png" alt="" data-shot="log" class="on"><img src="/img/app-timeline.png" alt="" data-shot="timeline"><img src="/img/app-today.png" alt="" data-shot="today"><img src="/img/app-coach.png" alt="" data-shot="coach"><img src="/img/app-activity.png" alt="" data-shot="activity"></div></div>
+        <div class="phone"><div class="screens"><img src="/img/app-log.webp" alt="" data-shot="log" class="on"><img src="/img/app-timeline.webp" alt="" data-shot="timeline"><img src="/img/app-today.webp" alt="" data-shot="today"><img src="/img/app-coach.webp" alt="" data-shot="coach"><img src="/img/app-activity.webp" alt="" data-shot="activity"></div></div>
         <div class="clock"><b id="clockTime">8:30 am</b> on Maya's phone</div>
       </div>
-      <ol class="steps"><span id="railFill"></span>
+      <ol class="steps"><li id="railFill" aria-hidden="true"></li>
         <li class="step on" data-shot="log" data-time="8:30 am">
           <span class="stepno">Step 1</span><time>8:30 am</time><h3>Log your meal</h3><p>Take a photo, say a sentence, or scan a barcode. Fit-Check works out the calories, protein, carbs and fat. It is built for real home-cooked plates, not only packaged food.</p>
-          <div class="phone inline-shot"><img src="/img/app-log.png" alt="A typed dinner turned into calories and macros" loading="lazy" width="780" height="1690"></div>
+          <div class="phone inline-shot"><img src="/img/app-log.webp" alt="A typed dinner turned into calories and macros" loading="lazy" width="600" height="1300"></div>
         </li>
         <li class="step" data-shot="timeline" data-time="1:15 pm">
           <span class="stepno">Step 2</span><time>1:15 pm</time><h3>Share a meal</h3><p>Maya wants to lose fat, Leo wants to gain weight, and they cook together. Log the meal once, tick who ate, and each of them gets their own numbers against their own goal.</p>
-          <div class="phone inline-shot"><img src="/img/app-timeline.png" alt="The timeline with a shared lunch tagged for two people" loading="lazy" width="780" height="1690"></div>
+          <div class="phone inline-shot"><img src="/img/app-timeline.webp" alt="The timeline with a shared lunch tagged for two people" loading="lazy" width="600" height="1300"></div>
         </li>
         <li class="step" data-shot="today" data-time="6:05 pm">
           <span class="stepno">Step 3</span><time>6:05 pm</time><h3>Track your workout</h3><p>A 45-minute gym session adds 248 kcal to Maya's target for the day. Log a workout by hand, or let Apple Health send workouts, steps and weight on its own.</p>
-          <div class="phone inline-shot"><img src="/img/app-today.png" alt="The Today screen with a target raised after a workout" loading="lazy" width="780" height="1690"></div>
+          <div class="phone inline-shot"><img src="/img/app-today.webp" alt="The Today screen with a target raised after a workout" loading="lazy" width="600" height="1300"></div>
         </li>
         <li class="step" data-shot="coach" data-time="7:00 pm">
           <span class="stepno">Step 4</span><time>7:00 pm</time><h3>Ask your coach</h3><p>The coach has seen every meal, the workout, your steps and your weight trend. It tells you what to eat tonight and whether tomorrow is a day to push or to rest.</p>
-          <div class="phone inline-shot"><img src="/img/app-coach.png" alt="The coach saying what to eat next and to take an easy day tomorrow" loading="lazy" width="780" height="1690"></div>
+          <div class="phone inline-shot"><img src="/img/app-coach.webp" alt="The coach saying what to eat next and to take an easy day tomorrow" loading="lazy" width="600" height="1300"></div>
         </li>
         <li class="step" data-shot="activity" data-time="End of the week">
           <span class="stepno">Step 5</span><time>End of the week</time><h3>See your progress</h3><p>Every session, your active minutes and what you burned, next to your weight trend. Enough to see whether the plan is working.</p>
-          <div class="phone inline-shot"><img src="/img/app-activity.png" alt="The Activity screen with workouts and active minutes" loading="lazy" width="780" height="1690"></div>
+          <div class="phone inline-shot"><img src="/img/app-activity.webp" alt="The Activity screen with workouts and active minutes" loading="lazy" width="600" height="1300"></div>
         </li>
       </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone-l" id="household">
+  <div class="wrap">
+    <h2 data-split>One meal. Two goals.</h2>
+    <p class="lead rv">Most apps assume one person and one plate. Fit-Check splits a shared meal into each person's own numbers.</p>
+    <div class="hh">
+      <div>
+        <ol class="rv">
+          <li><h3>Log it once</h3><p>Take a photo or type a sentence for the meal you cooked together.</p></li>
+          <li><h3>Tick who ate</h3><p>Everyone at the table gets their own portion, calories and macros, measured against their own goal.</p></li>
+          <li><h3>Different goals are normal</h3><p>One person losing fat while another gains weight is the case it was built for, for as many people as you live with.</p></li>
+          <li><h3>Set up with a code</h3><p>Create a household and share the code. Anyone with the code can join.</p></li>
+        </ol>
+        <div class="hh-foot rv"><a class="btn forest" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Try a shared meal</a><span>Household meals and profiles are stored on our server so members can see them. <a href="/privacy.html">Privacy details</a></span></div>
+      </div>
+      <div class="phone rv" style="--d:2"><img src="/img/app-timeline.webp" alt="The timeline with a shared lunch tagged for two people" loading="lazy" decoding="async" width="600" height="1300"></div>
     </div>
   </div>
 </section>
@@ -624,6 +707,27 @@
     <div class="cards five" style="margin-top:52px"><article class="card pillar green glow tilt rv" style="--d:0"><svg viewBox="0 0 34 34"><path d="M5 11h5l2-3h10l2 3h5v16H5z"/><circle cx="17" cy="19" r="5"/></svg><h3>Food tracking</h3><p>Photo, voice or barcode. Fit-Check estimates calories, protein, carbs, fat and portion size, and is built for home-cooked, mixed plates.</p></article><article class="card pillar green glow tilt rv" style="--d:1"><svg viewBox="0 0 34 34"><path d="M3 17h6l3-8 5 16 4-11 2 3h8"/></svg><h3>Workout tracking</h3><p>Log a workout in seconds: type, duration, intensity. No wearable needed, and it still adjusts today's target.</p></article><article class="card pillar green glow tilt rv" style="--d:2"><svg viewBox="0 0 34 34"><rect x="10" y="9" width="14" height="16" rx="4"/><path d="M13 9l1-5h6l1 5"/><path d="M13 25l1 5h6l1-5"/><path d="M17 14v4l2 1"/></svg><h3>Wearable sync</h3><p>Syncs with Apple Health today, so steps, workouts and weight flow in. Fitbit connects through Apple Health. Garmin and Whoop are on the roadmap.</p></article><article class="card pillar green glow tilt rv" style="--d:0"><svg viewBox="0 0 34 34"><circle cx="13" cy="17" r="8"/><circle cx="21" cy="17" r="8"/></svg><h3>Household tracking</h3><p>One shared meal, split automatically into individual portions, for however many people are at your table.</p></article><article class="card pillar green glow tilt rv" style="--d:1"><svg viewBox="0 0 34 34"><path d="M6 8h22v15H16l-6 5v-5H6z"/><path d="M12 14h10"/><path d="M12 18h6"/></svg><h3>Whole-day coaching</h3><p>Food and activity together, every day: what to eat next, and whether to push hard or ease off your next workout.</p></article></div>
     <h3 class="subhead rv">Also included</h3>
     <div class="cards"><article class="card green glow tilt rv" style="--d:0"><svg viewBox="0 0 34 34"><path d="M10 6h14v4H10z"/><path d="M9 10h16l1 5v11a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V15z"/><path d="M12 19h10"/></svg><h3>Your kitchen</h3><p>Save foods you buy often. "The usual yogurt" then uses the exact label numbers.</p></article><article class="card green glow tilt rv" style="--d:1"><svg viewBox="0 0 34 34"><rect x="13" y="5" width="8" height="15" rx="4"/><path d="M8 16a9 9 0 0 0 18 0"/><path d="M17 25v4"/></svg><h3>Hands-free</h3><p>"Hey Siri, log a meal" works while you are still cooking. Alexa too.</p></article><article class="card green glow tilt rv" style="--d:2"><svg viewBox="0 0 34 34"><path d="M17 28S6 21 6 13a6 6 0 0 1 11-3 6 6 0 0 1 11 3c0 8-11 15-11 15z"/><path d="M10 16h4l2-4 3 7 2-3h3"/></svg><h3>Apple Health</h3><p>Steps, workouts and weight come in on their own. Fitbit connects through Apple Health.</p></article><article class="card green glow tilt rv" style="--d:0"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="12"/><path d="M5 17h24"/><path d="M17 5c4 4 4 20 0 24c-4-4-4-20 0-24z"/></svg><h3>Local foods</h3><p>Portions and packaged foods follow the country you live in. Germany and India so far.</p></article><article class="card green glow tilt rv" style="--d:1"><svg viewBox="0 0 34 34"><path d="M9 17v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9"/><path d="M17 21V5"/><path d="M11 11l6-6 6 6"/></svg><h3>Share cards</h3><p>Turn a meal, a workout or your day into a story-sized card.</p></article><article class="card green glow tilt rv" style="--d:2"><svg viewBox="0 0 34 34"><rect x="8" y="15" width="18" height="13" rx="3"/><path d="M12 15v-4a5 5 0 0 1 10 0v4"/><path d="M17 20v3"/></svg><h3>Private by default</h3><p>Your log stays on your phone unless you share a household. No ads.</p></article></div>
+  </div>
+</section>
+
+<section class="sec tone-d" id="compare" style="padding-top:0">
+  <div class="wrap">
+    <h2 data-split>Why it's different</h2>
+    <p class="lead rv">Most apps do one job. Fit-Check puts the jobs in one place, so the coach sees your whole day.</p>
+    <div class="cmp-wrap rv" role="region" aria-label="Comparison table, scrolls sideways on small screens" tabindex="0">
+      <table class="cmp">
+        <caption class="vh">How Fit-Check compares with typical single-purpose apps</caption>
+        <thead><tr><th scope="col"><span class="vh">Capability</span></th><th scope="col">Food tracker</th><th scope="col">Workout tracker</th><th scope="col">Wearable app</th><th scope="col" class="us">Fit-Check</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Food and macro tracking</th><td data-label="Food tracker" class="y"><span aria-hidden="true">✓</span><span class="vh">Yes</span></td><td data-label="Workout tracker" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Wearable app" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Fit-Check" class="us y"><span aria-hidden="true">✓</span><span class="vh">Yes</span> Photo, voice or barcode</td></tr>
+          <tr><th scope="row">Workout logging</th><td data-label="Food tracker" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Workout tracker" class="y"><span aria-hidden="true">✓</span><span class="vh">Yes</span></td><td data-label="Wearable app" class="y"><span aria-hidden="true">✓</span><span class="vh">Yes</span></td><td data-label="Fit-Check" class="us y"><span aria-hidden="true">✓</span><span class="vh">Yes</span> By hand or from Apple Health</td></tr>
+          <tr><th scope="row">Steps and body data from a device</th><td data-label="Food tracker" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Workout tracker" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Wearable app" class="y"><span aria-hidden="true">✓</span><span class="vh">Yes</span></td><td data-label="Fit-Check" class="us y"><span aria-hidden="true">✓</span><span class="vh">Yes</span> Through Apple Health</td></tr>
+          <tr><th scope="row">One shared meal, split per person</th><td data-label="Food tracker" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Workout tracker" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Wearable app" class="n"><span aria-hidden="true">–</span><span class="vh">Not its job</span></td><td data-label="Fit-Check" class="us y"><span aria-hidden="true">✓</span><span class="vh">Yes</span> Different goals per person</td></tr>
+          <tr><th scope="row">Coaching on your whole day</th><td data-label="Food tracker">Food only</td><td data-label="Workout tracker">Training only</td><td data-label="Wearable app">Activity and recovery</td><td data-label="Fit-Check" class="us">Meals, workouts, steps and weight trend together</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note rv">The first three columns describe what each type of app is typically built for, not specific products; some apps in each category go further. Direct Garmin and Whoop connections are on the roadmap, not live yet.</p>
   </div>
 </section>
 
@@ -693,19 +797,6 @@
   </div>
 </section>
 
-<section class="sec tone-d" id="shop" style="padding-top:0">
-  <div class="wrap">
-    <h2 data-split>Shop</h2>
-    <p class="lead rv">Fit-Check tees are coming soon. Six designs built around the two-ring mark, each in several colours.</p>
-    <div class="shopgrid rv">
-      <img src="/img/shop/o01_r04.jpg" alt="Fit-Check tee with a plum to fuchsia fade and a small white icon" loading="lazy" width="1000" height="746">
-      <img src="/img/shop/d04_cream.jpg" alt="Fit-Check tee in cream with a small icon under the collar" loading="lazy" width="1000" height="746">
-      <img src="/img/shop/d21_cobaltblue.jpg" alt="Fit-Check tee in cobalt blue with thin ring lines sweeping up the side" loading="lazy" width="1000" height="746">
-    </div>
-    <div class="shoprow"><a class="btn" href="/shop.html">See the shop</a><span>€20 per tee, coming soon</span></div>
-  </div>
-</section>
-
 <section class="sec tone-d faq" id="faq" style="padding:0 0 110px; --faq-line:var(--line-d); --faq-plus:var(--amber); --faq-muted:var(--muted-d); --faq-hover:var(--mint);">
   <div class="wrap">
     <h2 data-split>Questions and answers</h2>
@@ -726,10 +817,12 @@
   <div class="wrap">
     <h2 data-split>Start with your next meal.</h2>
     <p>Snap it or say it. Fit-Check does the numbers, then tells you what comes next.</p>
-    <a class="btn big" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Open the app</a>
+    <a class="btn big" href="https://fit-check-ukc9.onrender.com" target="_blank" rel="noopener">Try Fit-Check free</a>
+    <p class="note">Free in early access. Opens in your browser, no account needed. <a href="/privacy.html">Privacy</a></p>
     <p class="tag">Your body is your fit.</p>
   </div>
 </section>
+
 </main>
 <footer class="tone-d"><div class="wrap"><span>Fit-Check, Berlin, 2026</span><span class="sp"></span><a href="/shop.html">Shop</a><a href="/about.html">About</a><a href="/investors.html">Investors</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div></footer>
 
@@ -894,13 +987,17 @@
   // sun keyframes per sky: x (vw), y (vh), size (vh), colour
   var KEY = [ [47, 66, 84, [232,163,61]], [84, 17, 15, [240,180,80]], [15, 64, 40, [226,112,74]], [82, 20, 17, [169,212,180]] ];
   function lerp(a, b, f){ return a + (b - a) * f; }
-  function ys(){ return marks.map(function(m, i){ return i === 0 ? 0 : m.getBoundingClientRect().top + scrollY - innerHeight * 0.55; }); }
+  function ys(){ return marks.map(function(m, i){ return i === 0 ? 0 : m.getBoundingClientRect().top + scrollY - innerHeight * 0.35; }); }
   var Y = ys();
   function paint(){
     var y = scrollY, k = 0;
     while (k < Y.length - 2 && y >= Y[k + 1]) k++;
     var f = Math.max(0, Math.min(1, (y - Y[k]) / Math.max(1, Y[k + 1] - Y[k])));
-    var e = k === 0 ? f : Math.pow(f, 5);             // hold each sky, change near the end
+    // Dawn eases into day across the whole hero. Later skies hold, then change
+    // quickly while the gap between two sections crosses the middle of the screen,
+    // so dark text never sits on a dark sky (or light text on a light one) for long.
+    var win = innerHeight * 0.3;
+    var e = k === 0 ? f : Math.max(0, Math.min(1, (y - (Y[k + 1] - win)) / win));
     layers.forEach(function(l, i){ l.style.opacity = i === k ? 1 : i === k + 1 ? e : 0; });
     var a = KEY[k], b = KEY[k + 1], s = f * f * (3 - 2 * f), mobile = innerWidth < 900;
     var size = lerp(a[2], b[2], s) * innerHeight / 100 * (mobile ? 0.62 : 1);
@@ -908,6 +1005,7 @@
     if (mobile && k === 0) { x = lerp(50, b[0], s) * innerWidth / 100; yy = lerp(74, b[1], s) * innerHeight / 100; }
     var c = [0, 1, 2].map(function(i){ return Math.round(lerp(a[3][i], b[3][i], s)); });
     sun.style.transform = 'translate(' + x.toFixed(1) + 'px,' + yy.toFixed(1) + 'px) scale(' + (size / 100).toFixed(3) + ')';
+    sun.style.opacity = k === 0 ? (1 - f * 0.5).toFixed(2) : '0.5';   // full strength at sunrise, quieter once it passes behind text
     sun.style.setProperty('--sun', 'rgb(' + c + ')'); sun.style.setProperty('--sun-glow', 'rgba(' + c + ',.5)');
     var dark = (k === 1 && e > 0.6) || k >= 2;
     if (navEl){ navEl.classList.toggle('dark', dark); navEl.classList.toggle('solid', y > 40); }
